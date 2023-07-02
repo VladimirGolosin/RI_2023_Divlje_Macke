@@ -1,0 +1,471 @@
+class id,filepath,label
+0,valid\AFRICAN LEOPARD\african_leopard_166.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_167.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_168.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_169.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_170.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_171.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_172.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_173.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_174.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_175.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_176.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_177.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_178.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_179.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_180.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_181.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_182.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_183.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_184.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_185.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_186.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_187.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_188.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_189.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_190.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_191.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_192.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_193.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_194.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_195.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_196.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_197.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_198.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_199.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_200.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_201.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_202.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_203.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_204.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_205.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_206.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_207.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_208.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_209.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_210.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_211.jpg,African Leopard
+0,valid\AFRICAN LEOPARD\african_leopard_212.jpg,African Leopard
+1,valid\CARACAL\caracal_166.jpg,Caracal
+1,valid\CARACAL\caracal_167.jpg,Caracal
+1,valid\CARACAL\caracal_168.jpg,Caracal
+1,valid\CARACAL\caracal_169.jpg,Caracal
+1,valid\CARACAL\caracal_170.jpg,Caracal
+1,valid\CARACAL\caracal_171.jpg,Caracal
+1,valid\CARACAL\caracal_172.jpg,Caracal
+1,valid\CARACAL\caracal_173.jpg,Caracal
+1,valid\CARACAL\caracal_174.jpg,Caracal
+1,valid\CARACAL\caracal_175.jpg,Caracal
+1,valid\CARACAL\caracal_176.jpg,Caracal
+1,valid\CARACAL\caracal_177.jpg,Caracal
+1,valid\CARACAL\caracal_178.jpg,Caracal
+1,valid\CARACAL\caracal_179.jpg,Caracal
+1,valid\CARACAL\caracal_180.jpg,Caracal
+1,valid\CARACAL\caracal_181.jpg,Caracal
+1,valid\CARACAL\caracal_182.jpg,Caracal
+1,valid\CARACAL\caracal_183.jpg,Caracal
+1,valid\CARACAL\caracal_184.jpg,Caracal
+1,valid\CARACAL\caracal_185.jpg,Caracal
+1,valid\CARACAL\caracal_186.jpg,Caracal
+1,valid\CARACAL\caracal_187.jpg,Caracal
+1,valid\CARACAL\caracal_188.jpg,Caracal
+1,valid\CARACAL\caracal_189.jpg,Caracal
+1,valid\CARACAL\caracal_190.jpg,Caracal
+1,valid\CARACAL\caracal_191.jpg,Caracal
+1,valid\CARACAL\caracal_192.jpg,Caracal
+1,valid\CARACAL\caracal_193.jpg,Caracal
+1,valid\CARACAL\caracal_194.jpg,Caracal
+1,valid\CARACAL\caracal_195.jpg,Caracal
+1,valid\CARACAL\caracal_196.jpg,Caracal
+1,valid\CARACAL\caracal_197.jpg,Caracal
+1,valid\CARACAL\caracal_198.jpg,Caracal
+1,valid\CARACAL\caracal_199.jpg,Caracal
+1,valid\CARACAL\caracal_200.jpg,Caracal
+1,valid\CARACAL\caracal_201.jpg,Caracal
+1,valid\CARACAL\caracal_202.jpg,Caracal
+1,valid\CARACAL\caracal_203.jpg,Caracal
+1,valid\CARACAL\caracal_204.jpg,Caracal
+1,valid\CARACAL\caracal_205.jpg,Caracal
+1,valid\CARACAL\caracal_206.jpg,Caracal
+1,valid\CARACAL\caracal_207.jpg,Caracal
+1,valid\CARACAL\caracal_208.jpg,Caracal
+1,valid\CARACAL\caracal_209.jpg,Caracal
+1,valid\CARACAL\caracal_210.jpg,Caracal
+1,valid\CARACAL\caracal_211.jpg,Caracal
+1,valid\CARACAL\caracal_212.jpg,Caracal
+2,valid\CHEETAH\cheetah_166.jpg,Cheetah
+2,valid\CHEETAH\cheetah_167.jpg,Cheetah
+2,valid\CHEETAH\cheetah_168.jpg,Cheetah
+2,valid\CHEETAH\cheetah_169.jpg,Cheetah
+2,valid\CHEETAH\cheetah_170.jpg,Cheetah
+2,valid\CHEETAH\cheetah_171.jpg,Cheetah
+2,valid\CHEETAH\cheetah_172.jpg,Cheetah
+2,valid\CHEETAH\cheetah_173.jpg,Cheetah
+2,valid\CHEETAH\cheetah_174.jpg,Cheetah
+2,valid\CHEETAH\cheetah_175.jpg,Cheetah
+2,valid\CHEETAH\cheetah_176.jpg,Cheetah
+2,valid\CHEETAH\cheetah_177.jpg,Cheetah
+2,valid\CHEETAH\cheetah_178.jpg,Cheetah
+2,valid\CHEETAH\cheetah_179.jpg,Cheetah
+2,valid\CHEETAH\cheetah_180.jpg,Cheetah
+2,valid\CHEETAH\cheetah_181.jpg,Cheetah
+2,valid\CHEETAH\cheetah_182.jpg,Cheetah
+2,valid\CHEETAH\cheetah_183.jpg,Cheetah
+2,valid\CHEETAH\cheetah_184.jpg,Cheetah
+2,valid\CHEETAH\cheetah_185.jpg,Cheetah
+2,valid\CHEETAH\cheetah_186.jpg,Cheetah
+2,valid\CHEETAH\cheetah_187.jpg,Cheetah
+2,valid\CHEETAH\cheetah_188.jpg,Cheetah
+2,valid\CHEETAH\cheetah_189.jpg,Cheetah
+2,valid\CHEETAH\cheetah_190.jpg,Cheetah
+2,valid\CHEETAH\cheetah_191.jpg,Cheetah
+2,valid\CHEETAH\cheetah_192.jpg,Cheetah
+2,valid\CHEETAH\cheetah_193.jpg,Cheetah
+2,valid\CHEETAH\cheetah_194.jpg,Cheetah
+2,valid\CHEETAH\cheetah_195.jpg,Cheetah
+2,valid\CHEETAH\cheetah_196.jpg,Cheetah
+2,valid\CHEETAH\cheetah_197.jpg,Cheetah
+2,valid\CHEETAH\cheetah_198.jpg,Cheetah
+2,valid\CHEETAH\cheetah_199.jpg,Cheetah
+2,valid\CHEETAH\cheetah_200.jpg,Cheetah
+2,valid\CHEETAH\cheetah_201.jpg,Cheetah
+2,valid\CHEETAH\cheetah_202.jpg,Cheetah
+2,valid\CHEETAH\cheetah_203.jpg,Cheetah
+2,valid\CHEETAH\cheetah_204.jpg,Cheetah
+2,valid\CHEETAH\cheetah_205.jpg,Cheetah
+2,valid\CHEETAH\cheetah_206.jpg,Cheetah
+2,valid\CHEETAH\cheetah_207.jpg,Cheetah
+2,valid\CHEETAH\cheetah_208.jpg,Cheetah
+2,valid\CHEETAH\cheetah_209.jpg,Cheetah
+2,valid\CHEETAH\cheetah_210.jpg,Cheetah
+2,valid\CHEETAH\cheetah_211.jpg,Cheetah
+2,valid\CHEETAH\cheetah_212.jpg,Cheetah
+3,valid\CLOUDED LEOPARD\clouded_leopard_166.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_167.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_168.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_169.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_170.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_171.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_172.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_173.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_174.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_175.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_176.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_177.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_178.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_179.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_180.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_181.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_182.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_183.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_184.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_185.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_186.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_187.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_188.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_189.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_190.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_191.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_192.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_193.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_194.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_195.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_196.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_197.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_198.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_199.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_200.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_201.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_202.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_203.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_204.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_205.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_206.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_207.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_208.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_209.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_210.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_211.jpg,Clouded Leopard
+3,valid\CLOUDED LEOPARD\clouded_leopard_212.jpg,Clouded Leopard
+4,valid\JAGUAR\jaguar_166.jpg,Jaguar
+4,valid\JAGUAR\jaguar_167.jpg,Jaguar
+4,valid\JAGUAR\jaguar_168.jpg,Jaguar
+4,valid\JAGUAR\jaguar_169.jpg,Jaguar
+4,valid\JAGUAR\jaguar_170.jpg,Jaguar
+4,valid\JAGUAR\jaguar_171.jpg,Jaguar
+4,valid\JAGUAR\jaguar_172.jpg,Jaguar
+4,valid\JAGUAR\jaguar_173.jpg,Jaguar
+4,valid\JAGUAR\jaguar_174.jpg,Jaguar
+4,valid\JAGUAR\jaguar_175.jpg,Jaguar
+4,valid\JAGUAR\jaguar_176.jpg,Jaguar
+4,valid\JAGUAR\jaguar_177.jpg,Jaguar
+4,valid\JAGUAR\jaguar_178.jpg,Jaguar
+4,valid\JAGUAR\jaguar_179.jpg,Jaguar
+4,valid\JAGUAR\jaguar_180.jpg,Jaguar
+4,valid\JAGUAR\jaguar_181.jpg,Jaguar
+4,valid\JAGUAR\jaguar_182.jpg,Jaguar
+4,valid\JAGUAR\jaguar_183.jpg,Jaguar
+4,valid\JAGUAR\jaguar_184.jpg,Jaguar
+4,valid\JAGUAR\jaguar_185.jpg,Jaguar
+4,valid\JAGUAR\jaguar_186.jpg,Jaguar
+4,valid\JAGUAR\jaguar_187.jpg,Jaguar
+4,valid\JAGUAR\jaguar_188.jpg,Jaguar
+4,valid\JAGUAR\jaguar_189.jpg,Jaguar
+4,valid\JAGUAR\jaguar_190.jpg,Jaguar
+4,valid\JAGUAR\jaguar_191.jpg,Jaguar
+4,valid\JAGUAR\jaguar_192.jpg,Jaguar
+4,valid\JAGUAR\jaguar_193.jpg,Jaguar
+4,valid\JAGUAR\jaguar_194.jpg,Jaguar
+4,valid\JAGUAR\jaguar_195.jpg,Jaguar
+4,valid\JAGUAR\jaguar_196.jpg,Jaguar
+4,valid\JAGUAR\jaguar_197.jpg,Jaguar
+4,valid\JAGUAR\jaguar_198.jpg,Jaguar
+4,valid\JAGUAR\jaguar_199.jpg,Jaguar
+4,valid\JAGUAR\jaguar_200.jpg,Jaguar
+4,valid\JAGUAR\jaguar_201.jpg,Jaguar
+4,valid\JAGUAR\jaguar_202.jpg,Jaguar
+4,valid\JAGUAR\jaguar_203.jpg,Jaguar
+4,valid\JAGUAR\jaguar_204.jpg,Jaguar
+4,valid\JAGUAR\jaguar_205.jpg,Jaguar
+4,valid\JAGUAR\jaguar_206.jpg,Jaguar
+4,valid\JAGUAR\jaguar_207.jpg,Jaguar
+4,valid\JAGUAR\jaguar_208.jpg,Jaguar
+4,valid\JAGUAR\jaguar_209.jpg,Jaguar
+4,valid\JAGUAR\jaguar_210.jpg,Jaguar
+4,valid\JAGUAR\jaguar_211.jpg,Jaguar
+4,valid\JAGUAR\jaguar_212.jpg,Jaguar
+5,valid\LION\lion_166.jpg,Lion
+5,valid\LION\lion_167.jpg,Lion
+5,valid\LION\lion_168.jpg,Lion
+5,valid\LION\lion_169.jpg,Lion
+5,valid\LION\lion_170.jpg,Lion
+5,valid\LION\lion_171.jpg,Lion
+5,valid\LION\lion_172.jpg,Lion
+5,valid\LION\lion_173.jpg,Lion
+5,valid\LION\lion_174.jpg,Lion
+5,valid\LION\lion_175.jpg,Lion
+5,valid\LION\lion_176.jpg,Lion
+5,valid\LION\lion_177.jpg,Lion
+5,valid\LION\lion_178.jpg,Lion
+5,valid\LION\lion_179.jpg,Lion
+5,valid\LION\lion_180.jpg,Lion
+5,valid\LION\lion_181.jpg,Lion
+5,valid\LION\lion_182.jpg,Lion
+5,valid\LION\lion_183.jpg,Lion
+5,valid\LION\lion_184.jpg,Lion
+5,valid\LION\lion_185.jpg,Lion
+5,valid\LION\lion_186.jpg,Lion
+5,valid\LION\lion_187.jpg,Lion
+5,valid\LION\lion_188.jpg,Lion
+5,valid\LION\lion_189.jpg,Lion
+5,valid\LION\lion_190.jpg,Lion
+5,valid\LION\lion_191.jpg,Lion
+5,valid\LION\lion_192.jpg,Lion
+5,valid\LION\lion_193.jpg,Lion
+5,valid\LION\lion_194.jpg,Lion
+5,valid\LION\lion_195.jpg,Lion
+5,valid\LION\lion_196.jpg,Lion
+5,valid\LION\lion_197.jpg,Lion
+5,valid\LION\lion_198.jpg,Lion
+5,valid\LION\lion_199.jpg,Lion
+5,valid\LION\lion_200.jpg,Lion
+5,valid\LION\lion_201.jpg,Lion
+5,valid\LION\lion_202.jpg,Lion
+5,valid\LION\lion_203.jpg,Lion
+5,valid\LION\lion_204.jpg,Lion
+5,valid\LION\lion_205.jpg,Lion
+5,valid\LION\lion_206.jpg,Lion
+5,valid\LION\lion_207.jpg,Lion
+5,valid\LION\lion_208.jpg,Lion
+5,valid\LION\lion_209.jpg,Lion
+5,valid\LION\lion_210.jpg,Lion
+5,valid\LION\lion_211.jpg,Lion
+5,valid\LION\lion_212.jpg,Lion
+6,valid\OCELOT\ocelot_166.jpg,Ocelot
+6,valid\OCELOT\ocelot_167.jpg,Ocelot
+6,valid\OCELOT\ocelot_168.jpg,Ocelot
+6,valid\OCELOT\ocelot_169.jpg,Ocelot
+6,valid\OCELOT\ocelot_170.jpg,Ocelot
+6,valid\OCELOT\ocelot_171.jpg,Ocelot
+6,valid\OCELOT\ocelot_172.jpg,Ocelot
+6,valid\OCELOT\ocelot_173.jpg,Ocelot
+6,valid\OCELOT\ocelot_174.jpg,Ocelot
+6,valid\OCELOT\ocelot_175.jpg,Ocelot
+6,valid\OCELOT\ocelot_176.jpg,Ocelot
+6,valid\OCELOT\ocelot_177.jpg,Ocelot
+6,valid\OCELOT\ocelot_178.jpg,Ocelot
+6,valid\OCELOT\ocelot_179.jpg,Ocelot
+6,valid\OCELOT\ocelot_180.jpg,Ocelot
+6,valid\OCELOT\ocelot_181.jpg,Ocelot
+6,valid\OCELOT\ocelot_182.jpg,Ocelot
+6,valid\OCELOT\ocelot_183.jpg,Ocelot
+6,valid\OCELOT\ocelot_184.jpg,Ocelot
+6,valid\OCELOT\ocelot_185.jpg,Ocelot
+6,valid\OCELOT\ocelot_186.jpg,Ocelot
+6,valid\OCELOT\ocelot_187.jpg,Ocelot
+6,valid\OCELOT\ocelot_188.jpg,Ocelot
+6,valid\OCELOT\ocelot_189.jpg,Ocelot
+6,valid\OCELOT\ocelot_190.jpg,Ocelot
+6,valid\OCELOT\ocelot_191.jpg,Ocelot
+6,valid\OCELOT\ocelot_192.jpg,Ocelot
+6,valid\OCELOT\ocelot_193.jpg,Ocelot
+6,valid\OCELOT\ocelot_194.jpg,Ocelot
+6,valid\OCELOT\ocelot_195.jpg,Ocelot
+6,valid\OCELOT\ocelot_196.jpg,Ocelot
+6,valid\OCELOT\ocelot_197.jpg,Ocelot
+6,valid\OCELOT\ocelot_198.jpg,Ocelot
+6,valid\OCELOT\ocelot_199.jpg,Ocelot
+6,valid\OCELOT\ocelot_200.jpg,Ocelot
+6,valid\OCELOT\ocelot_201.jpg,Ocelot
+6,valid\OCELOT\ocelot_202.jpg,Ocelot
+6,valid\OCELOT\ocelot_203.jpg,Ocelot
+6,valid\OCELOT\ocelot_204.jpg,Ocelot
+6,valid\OCELOT\ocelot_205.jpg,Ocelot
+6,valid\OCELOT\ocelot_206.jpg,Ocelot
+6,valid\OCELOT\ocelot_207.jpg,Ocelot
+6,valid\OCELOT\ocelot_208.jpg,Ocelot
+6,valid\OCELOT\ocelot_209.jpg,Ocelot
+6,valid\OCELOT\ocelot_210.jpg,Ocelot
+6,valid\OCELOT\ocelot_211.jpg,Ocelot
+6,valid\OCELOT\ocelot_212.jpg,Ocelot
+7,valid\PUMA\puma_166.jpg,Puma
+7,valid\PUMA\puma_167.jpg,Puma
+7,valid\PUMA\puma_168.jpg,Puma
+7,valid\PUMA\puma_169.jpg,Puma
+7,valid\PUMA\puma_170.jpg,Puma
+7,valid\PUMA\puma_171.jpg,Puma
+7,valid\PUMA\puma_172.jpg,Puma
+7,valid\PUMA\puma_173.jpg,Puma
+7,valid\PUMA\puma_174.jpg,Puma
+7,valid\PUMA\puma_175.jpg,Puma
+7,valid\PUMA\puma_176.jpg,Puma
+7,valid\PUMA\puma_177.jpg,Puma
+7,valid\PUMA\puma_178.jpg,Puma
+7,valid\PUMA\puma_179.jpg,Puma
+7,valid\PUMA\puma_180.jpg,Puma
+7,valid\PUMA\puma_181.jpg,Puma
+7,valid\PUMA\puma_182.jpg,Puma
+7,valid\PUMA\puma_183.jpg,Puma
+7,valid\PUMA\puma_184.jpg,Puma
+7,valid\PUMA\puma_185.jpg,Puma
+7,valid\PUMA\puma_186.jpg,Puma
+7,valid\PUMA\puma_187.jpg,Puma
+7,valid\PUMA\puma_188.jpg,Puma
+7,valid\PUMA\puma_189.jpg,Puma
+7,valid\PUMA\puma_190.jpg,Puma
+7,valid\PUMA\puma_191.jpg,Puma
+7,valid\PUMA\puma_192.jpg,Puma
+7,valid\PUMA\puma_193.jpg,Puma
+7,valid\PUMA\puma_194.jpg,Puma
+7,valid\PUMA\puma_195.jpg,Puma
+7,valid\PUMA\puma_196.jpg,Puma
+7,valid\PUMA\puma_197.jpg,Puma
+7,valid\PUMA\puma_198.jpg,Puma
+7,valid\PUMA\puma_199.jpg,Puma
+7,valid\PUMA\puma_200.jpg,Puma
+7,valid\PUMA\puma_201.jpg,Puma
+7,valid\PUMA\puma_202.jpg,Puma
+7,valid\PUMA\puma_203.jpg,Puma
+7,valid\PUMA\puma_204.jpg,Puma
+7,valid\PUMA\puma_205.jpg,Puma
+7,valid\PUMA\puma_206.jpg,Puma
+7,valid\PUMA\puma_207.jpg,Puma
+7,valid\PUMA\puma_208.jpg,Puma
+7,valid\PUMA\puma_209.jpg,Puma
+7,valid\PUMA\puma_210.jpg,Puma
+7,valid\PUMA\puma_211.jpg,Puma
+7,valid\PUMA\puma_212.jpg,Puma
+8,valid\SNOW LEOPARD\snow_leopard_166.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_167.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_168.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_169.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_170.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_171.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_172.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_173.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_174.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_175.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_176.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_177.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_178.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_179.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_180.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_181.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_182.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_183.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_184.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_185.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_186.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_187.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_188.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_189.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_190.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_191.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_192.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_193.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_194.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_195.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_196.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_197.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_198.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_199.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_200.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_201.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_202.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_203.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_204.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_205.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_206.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_207.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_208.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_209.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_210.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_211.jpg,Snow Leopard
+8,valid\SNOW LEOPARD\snow_leopard_212.jpg,Snow Leopard
+9,valid\TIGER\tiger_166.jpg,Tiger
+9,valid\TIGER\tiger_167.jpg,Tiger
+9,valid\TIGER\tiger_168.jpg,Tiger
+9,valid\TIGER\tiger_169.jpg,Tiger
+9,valid\TIGER\tiger_170.jpg,Tiger
+9,valid\TIGER\tiger_171.jpg,Tiger
+9,valid\TIGER\tiger_172.jpg,Tiger
+9,valid\TIGER\tiger_173.jpg,Tiger
+9,valid\TIGER\tiger_174.jpg,Tiger
+9,valid\TIGER\tiger_175.jpg,Tiger
+9,valid\TIGER\tiger_176.jpg,Tiger
+9,valid\TIGER\tiger_177.jpg,Tiger
+9,valid\TIGER\tiger_178.jpg,Tiger
+9,valid\TIGER\tiger_179.jpg,Tiger
+9,valid\TIGER\tiger_180.jpg,Tiger
+9,valid\TIGER\tiger_181.jpg,Tiger
+9,valid\TIGER\tiger_182.jpg,Tiger
+9,valid\TIGER\tiger_183.jpg,Tiger
+9,valid\TIGER\tiger_184.jpg,Tiger
+9,valid\TIGER\tiger_185.jpg,Tiger
+9,valid\TIGER\tiger_186.jpg,Tiger
+9,valid\TIGER\tiger_187.jpg,Tiger
+9,valid\TIGER\tiger_188.jpg,Tiger
+9,valid\TIGER\tiger_189.jpg,Tiger
+9,valid\TIGER\tiger_190.jpg,Tiger
+9,valid\TIGER\tiger_191.jpg,Tiger
+9,valid\TIGER\tiger_192.jpg,Tiger
+9,valid\TIGER\tiger_193.jpg,Tiger
+9,valid\TIGER\tiger_194.jpg,Tiger
+9,valid\TIGER\tiger_195.jpg,Tiger
+9,valid\TIGER\tiger_196.jpg,Tiger
+9,valid\TIGER\tiger_197.jpg,Tiger
+9,valid\TIGER\tiger_198.jpg,Tiger
+9,valid\TIGER\tiger_199.jpg,Tiger
+9,valid\TIGER\tiger_200.jpg,Tiger
+9,valid\TIGER\tiger_201.jpg,Tiger
+9,valid\TIGER\tiger_202.jpg,Tiger
+9,valid\TIGER\tiger_203.jpg,Tiger
+9,valid\TIGER\tiger_204.jpg,Tiger
+9,valid\TIGER\tiger_205.jpg,Tiger
+9,valid\TIGER\tiger_206.jpg,Tiger
+9,valid\TIGER\tiger_207.jpg,Tiger
+9,valid\TIGER\tiger_208.jpg,Tiger
+9,valid\TIGER\tiger_209.jpg,Tiger
+9,valid\TIGER\tiger_210.jpg,Tiger
+9,valid\TIGER\tiger_211.jpg,Tiger
+9,valid\TIGER\tiger_212.jpg,Tiger
