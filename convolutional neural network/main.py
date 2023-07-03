@@ -7,9 +7,9 @@ from torch.utils.data import DataLoader
 import pandas as pd
 import os
 from classifier import CatClassifier
-from draw import draw_graphs
-from draw import draw_confusion_matrix
-
+from draw import *
+from torch.utils.data.sampler import SubsetRandomSampler
+import numpy as np
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(base_dir, '..', 'data')
@@ -17,7 +17,6 @@ data_dir = os.path.join(base_dir, '..', 'data')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 transform = transforms.Compose([
-    transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
@@ -41,7 +40,7 @@ criterion = nn.CrossEntropyLoss()
 learning_rate = 0.0001
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-num_epochs = 2
+num_epochs = 10
 
 train_losses = []
 valid_losses = []
@@ -121,5 +120,28 @@ accuracy = 100.0 * correct / total
 
 print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {accuracy:.2f}%')
 
+print("Drawing graphs...")
+
+subset_indices = np.random.choice(len(test_dataset), size=30, replace=False)
+subset_loader = DataLoader(test_dataset, batch_size=30, sampler=SubsetRandomSampler(subset_indices))
+
+subset_images = []
+subset_true_labels = []
+subset_pred_labels = []
+
+with torch.no_grad():
+    for images, labels in subset_loader:
+        images = images.to(device)
+        labels = labels.to(device)
+
+        outputs = model(images)
+        _, predicted = torch.max(outputs.data, 1)
+
+        subset_images.extend(images.cpu())
+        subset_true_labels.extend(labels.cpu().numpy())
+        subset_pred_labels.extend(predicted.cpu().numpy())
+
+plot_predictions(subset_images, subset_true_labels, subset_pred_labels, class_labels)
 draw_graphs(num_epochs, train_losses, valid_losses, accuracies)
-draw_confusion_matrix(true_labels,pred_labels,class_labels)
+draw_confusion_matrix(true_labels, pred_labels, class_labels)
+
