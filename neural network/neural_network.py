@@ -1,0 +1,285 @@
+import os
+import torch
+import torchvision
+import torchvision.transforms as transforms
+import torchvision.models as models
+import torch.nn as nn
+import torch.optim as optim
+import torch.cuda
+import matplotlib.pyplot as plt
+import numpy as np
+import PIL.Image as Image
+from MLP import MLP
+
+def get_files():
+    current_directory = os.getcwd()
+    # print(current_directory)
+
+    parent_directory = os.path.dirname(current_directory)
+    os.chdir(parent_directory)
+    # print(parent_directory)
+
+    data_dir = os.path.join(parent_directory, 'data')
+    # print(data_dir)
+
+    files_in_dir = os.listdir(data_dir)
+    train, valid, test, csv = "", "", "", []
+    for file in files_in_dir:
+        # print(file)
+        file_path = os.path.join(data_dir, file)
+        if file == "train":
+            train = file_path
+        elif file == "valid":
+            valid = file_path
+        elif file == "test":
+            test = file_path
+        else:
+            csv.append(file_path)
+    return train, valid, test, csv
+
+
+def get_mean_and_sd(train_path):
+    training_transforms = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
+    train_dataset = torchvision.datasets.ImageFolder(root=train_path, transform=training_transforms)
+    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=32, shuffle=False)
+    mean, sd, total_count = 0, 0, 0
+    for images, _ in train_loader:
+        image_count_in_batch = images.size(0)
+        # print(images.shape)
+        images = images.view(image_count_in_batch, images.size(1), -1)
+        # print(images.shape)
+        mean += images.mean(2).sum(0)
+        sd += images.std(2).sum(0)
+        total_count += image_count_in_batch
+
+    mean /= total_count
+    sd /= total_count
+
+    return mean, sd
+
+
+# CW ruzno, ruka raste na glavi itd
+def show_transformed_images(dataset):
+    loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=6, shuffle=True)
+    batch = next(iter(loader))
+    images, labels = batch
+    grid = torchvision.utils.make_grid(images, nrow=3)
+    plt.figure(figsize=(11, 11))
+    plt.imshow(np.transpose(grid, (1, 2, 0)))
+    plt.show()
+
+
+def set_device():
+    dev = "cpu"
+    if torch.cuda.is_available():
+        dev = "cuda"
+        print("jo")
+    return torch.device(dev)
+
+
+def save_model(model, epoch, optimizer, best):
+    state = {
+        'epoch': epoch + 1,
+        'model': model.state_dict(),
+        'best_accuracy': best,
+        'opitimizer': optimizer.state_dict()
+    }
+    torch.save(state, 'best_model.pth.tar')
+
+
+def train_nn(model, train_loader, valid_loader, test_loader, criteria, optimizer, n_epochs):
+    device = set_device()
+    best_result = 0
+    best_model = None
+
+    for epoch in range(n_epochs):
+        print("Epoch no %d " % (epoch + 1))
+
+        # Training
+        model.train()
+        train_loss, valid_loss, train_correct, valid_correct, train_total, valid_total = 0.0, 0.0, 0.0, 0.0, 0, 0
+        for data in train_loader:
+            images, labels = data
+            images = images.to(device)
+            labels = labels.to(device)
+            train_total += labels.size(0)
+
+            optimizer.zero_grad()
+
+            outputs = model.forward(images)
+
+            _, predicted = torch.max(outputs.data, 1)
+
+            loss = criteria(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            train_loss += loss.item()
+            train_correct += (labels == predicted).sum().item()
+
+        train_loss = train_loss / len(train_loader)
+        train_accuracy = 100.00 * train_correct / train_total
+        print("     -Training. Got %d / %d images correctly (%.3f%%). Train loss: %.3f"
+              % (train_correct, train_total, train_accuracy, train_loss))
+
+
+        # Validating
+        model.eval()
+        with torch.no_grad():
+            for images, labels in valid_loader:
+                images = images.to(device)
+                labels = labels.to(device)
+                valid_total += labels.size(0)
+
+                outputs = model.forward(images)
+                _, predicted = torch.max(outputs.data, 1)
+                loss = criteria(outputs, labels)
+                valid_loss += loss.item()
+
+                valid_correct += (predicted == labels).sum().item()
+        valid_loss = valid_loss / len(valid_loader)
+        valid_accuracy = 100.00 * valid_correct / valid_total
+        print("     -Validating. Got %d / %d images correctly (%.3f%%). Valid loss: %.3f"
+              % (valid_correct, valid_total, valid_accuracy, valid_loss))
+
+        if train_accuracy > best_result:
+            best_result = train_accuracy
+            save_model(model, epoch, optimizer, best_result)
+            best_model = model
+    evaluate_model_on_test_set(best_model, test_loader)
+    print("Finished")
+    return model
+
+
+def evaluate_model_on_test_set(model, test_loader):
+    model.eval()
+    predicted_correctly_on_epoch = 0
+    total = 0
+    device = set_device()
+    with torch.no_grad():
+        for data in test_loader:
+            images, labels = data
+            images = images.to(device)
+            labels = labels.to(device)
+            total += labels.size(0)
+
+            outputs = model(images)
+
+            _, predicted = torch.max(outputs.data, 1)
+
+            predicted_correctly_on_epoch += (predicted == labels).sum().item()
+
+    epoch_acc = 100.00 * predicted_correctly_on_epoch / total
+    print("\nTesting. Got %d / %d images correctly (%.3f%%)."
+          % (predicted_correctly_on_epoch, total, epoch_acc))
+    return epoch_acc
+
+def classify(model, image_transforms, image_path, classes, real=''):
+    model = model.eval()
+    image = Image.open(image_path + '.jpg')
+    image = image_transforms(image).float()
+    image = image.unsqueeze(0)
+
+    output = model.forward(image)
+    _, predicted = torch.max(output.data, 1)
+
+    print("Prediction: " + classes[predicted.item()] + ", real: " + real)
+
+def set_up_nn(train, valid, test, csv):
+    mean = [0.4851, 0.4405, 0.3614]
+    sd = [0.2213, 0.2092, 0.2036]
+
+    train_transforms = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(10),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+
+    valid_transforms = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+
+    test_transforms = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+
+    train_dataset = torchvision.datasets.ImageFolder(root=train, transform=valid_transforms)
+    valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=valid_transforms)
+    test_dataset = torchvision.datasets.ImageFolder(root=test, transform=valid_transforms)
+
+    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=32, shuffle=True)
+    valid_loader = torch.utils.data.DataLoader(dataset=valid_dataset, batch_size=32, shuffle=False)
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
+
+    input_size = 224 * 224 * 3  # Input size for the MLP model
+    hidden_sizes = [32, 64, 128]
+    output_size = 10
+    model = MLP(input_size, hidden_sizes, output_size)
+    # model = models.resnet18(weights=None)
+    # in_features = model.fc.in_features
+    # out_features = 10
+    # model.fc = nn.Linear(in_features, out_features)
+
+    device = set_device()
+    model = model.to(device)
+
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.8, weight_decay=0.005)
+
+    train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 40)
+
+    checkpoint = torch.load('best_model.pth.tar')
+    print(checkpoint['epoch'])
+    print(checkpoint['best_accuracy'])
+
+    model.load_state_dict(checkpoint['model'])
+
+    torch.save(model, 'best_model.pth')
+
+
+if __name__ == '__main__':
+    train, valid, test, csv = get_files()
+    set_up_nn(train, valid, test, csv)
+
+    #------------------------------------------------------------------
+    # current_directory = os.getcwd()
+    # print(current_directory)
+    # # parent_directory = os.path.dirname(current_directory)
+    # # os.chdir(parent_directory)
+    # classes = ['AFRICAN LEOPARD',
+    #            'CARACAL',
+    #            'CHEETAH',
+    #            'CLOUDED LEOPARD',
+    #            'JAGUAR',
+    #            'LION',
+    #            'OCELOT',
+    #            'PUMA',
+    #            'SNOW LEOPARD',
+    #            'TIGER']
+    # model = torch.load('best_model.pth')
+    # mean = [0.4851, 0.4405, 0.3614]
+    # sd = [0.2213, 0.2092, 0.2036]
+    # image_transform = transforms.Compose([
+    #     transforms.Resize((224,224)),
+    #     transforms.ToTensor(),
+    #     transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    # ])
+    # test_dataset = torchvision.datasets.ImageFolder(root=test, transform=image_transform)
+    # test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
+    # evaluate_model_on_test_set(model, test_loader)
+    # classify(model, image_transform, 'african_leopard_8', classes, 'african_leopard')
+    # classify(model, image_transform, 'caracal_6', classes, 'caracal')
+    # classify(model, image_transform, 'cheetah_7', classes, 'cheetah')
+    # classify(model, image_transform, 'clouded_leopard_9', classes, 'clouded_leopard')
+    # classify(model, image_transform, 'jaguar_5', classes, 'jaguar')
+    # classify(model, image_transform, 'lion_6', classes, 'lion')
+    # classify(model, image_transform, 'ocelot_13', classes, 'ocelot')
+    # classify(model, image_transform, 'puma_20', classes, 'puma')
+    # classify(model, image_transform, 'snow_leopard_3', classes, 'snow_leopard')
+    # classify(model, image_transform, 'tiger_3', classes, 'tiger')
