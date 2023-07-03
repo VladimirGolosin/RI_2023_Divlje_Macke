@@ -7,6 +7,9 @@ from torch.utils.data import DataLoader
 import pandas as pd
 import os
 from classifier import CatClassifier
+from draw import draw_graphs
+from draw import draw_confusion_matrix
+
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(base_dir, '..', 'data')
@@ -34,9 +37,15 @@ num_classes = len(class_labels)
 model = CatClassifier(num_classes).to(device)
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-num_epochs = 10
+learning_rate = 0.0001
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+num_epochs = 2
+
+train_losses = []
+valid_losses = []
+accuracies = []
 
 for epoch in range(num_epochs):
     model.train()
@@ -77,6 +86,10 @@ for epoch in range(num_epochs):
     valid_loss /= len(valid_loader)
     accuracy = 100.0 * correct / total
 
+    train_losses.append(train_loss)
+    valid_losses.append(valid_loss)
+    accuracies.append(accuracy)
+
     print(
         f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Valid Loss: {valid_loss:.4f}, Accuracy: {accuracy:.2f}%')
 
@@ -84,6 +97,8 @@ model.eval()
 test_loss = 0.0
 correct = 0
 total = 0
+pred_labels = []
+true_labels = []
 
 with torch.no_grad():
     for images, labels in test_loader:
@@ -98,7 +113,13 @@ with torch.no_grad():
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 
+        pred_labels.extend(predicted.cpu().numpy())
+        true_labels.extend(labels.cpu().numpy())
+
 test_loss /= len(test_loader)
 accuracy = 100.0 * correct / total
 
 print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {accuracy:.2f}%')
+
+draw_graphs(num_epochs, train_losses, valid_losses, accuracies)
+draw_confusion_matrix(true_labels,pred_labels,class_labels)
