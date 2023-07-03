@@ -1,31 +1,50 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import confusion_matrix
+import numpy as np
 import math
+from sklearn.metrics import confusion_matrix
 
-def draw_graphs(num_epochs, train_losses, valid_losses, accuracies):
 
+def draw_graphs(history):
     plt.figure(figsize=(10, 5))
-    plt.plot(range(1, num_epochs + 1), train_losses, label='Train Loss')
-    plt.plot(range(1, num_epochs + 1), valid_losses, label='Valid Loss')
+    plt.plot(range(1, len(history.history['loss']) + 1), history.history['loss'], label='Train Loss')
+    plt.plot(range(1, len(history.history['val_loss']) + 1), history.history['val_loss'], label='Valid Loss')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.legend()
     plt.show()
 
     plt.figure(figsize=(10, 5))
-    plt.plot(range(1, num_epochs + 1), accuracies)
+    plt.plot(range(1, len(history.history['accuracy']) + 1), history.history['accuracy'], label='Train Accuracy')
+    plt.plot(range(1, len(history.history['val_accuracy']) + 1), history.history['val_accuracy'], label='Valid Accuracy')
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy')
+    plt.legend()
     plt.show()
 
-def draw_confusion_matrix(true_labels, pred_labels, class_labels):
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import math
+from sklearn.metrics import confusion_matrix
 
+
+def draw_confusion_matrix(true_labels, pred_labels, class_labels):
     confusion_mat = confusion_matrix(true_labels, pred_labels)
     plt.figure(figsize=(10, 8))
     sns.heatmap(confusion_mat, annot=True, fmt='d', cmap='Blues', xticklabels=class_labels, yticklabels=class_labels)
     plt.xlabel('Predicted Type')
     plt.ylabel('True Type')
+    plt.xticks(rotation=30)  # Rotate x-axis labels for better visibility
+    plt.yticks(rotation=0)  # Keep y-axis labels horizontal
+
+    # Add explicit labels
+    ax = plt.gca()
+    ax.xaxis.set_label_coords(0.5, -0.1)
+    ax.yaxis.set_label_coords(-0.1, 0.5)
+    plt.xlabel('Predicted Type', fontsize=12, fontweight='bold')
+    plt.ylabel('True Type', fontsize=12, fontweight='bold')
+
     plt.show()
 
 
@@ -43,8 +62,7 @@ def plot_predictions(images, true_labels, pred_labels, class_labels):
             if index >= num_images:
                 break
 
-            img = images[index].cpu().numpy().transpose((1, 2, 0))
-            img = img * 0.5 + 0.5  # Denormalize image
+            img = images[index]
 
             axs[i, j].imshow(img)
             axs[i, j].axis('off')
@@ -57,3 +75,4 @@ def plot_predictions(images, true_labels, pred_labels, class_labels):
             axs[i, j].set_title(f'True: {true_label}\nPred: {pred_label}', color=color)
 
     plt.show()
+
