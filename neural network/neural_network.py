@@ -9,7 +9,11 @@ import torch.cuda
 import matplotlib.pyplot as plt
 import numpy as np
 import PIL.Image as Image
-from MLP import MLP
+from MLPT import MLP
+import random
+import itertools
+
+batch_size = 64
 
 def get_files():
     current_directory = os.getcwd()
@@ -41,7 +45,7 @@ def get_files():
 def get_mean_and_sd(train_path):
     training_transforms = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
     train_dataset = torchvision.datasets.ImageFolder(root=train_path, transform=training_transforms)
-    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=32, shuffle=False)
+    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=False)
     mean, sd, total_count = 0, 0, 0
     for images, _ in train_loader:
         image_count_in_batch = images.size(0)
@@ -188,7 +192,6 @@ def classify(model, image_transforms, image_path, classes, real=''):
 def set_up_nn(train, valid, test, csv):
     mean = [0.4851, 0.4405, 0.3614]
     sd = [0.2213, 0.2092, 0.2036]
-
     train_transforms = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.RandomHorizontalFlip(),
@@ -197,42 +200,67 @@ def set_up_nn(train, valid, test, csv):
         transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
     ])
 
+    mean = [0.5009, 0.4567, 0.3786]
+    sd = [0.2143, 0.2058, 0.2002]
     valid_transforms = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
     ])
 
+    mean = [0.5002, 0.4565, 0.3743]
+    sd = [0.1999, 0.1948, 0.1928]
     test_transforms = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
     ])
 
-    train_dataset = torchvision.datasets.ImageFolder(root=train, transform=valid_transforms)
+    train_dataset = torchvision.datasets.ImageFolder(root=train, transform=train_transforms)
     valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=valid_transforms)
-    test_dataset = torchvision.datasets.ImageFolder(root=test, transform=valid_transforms)
+    test_dataset = torchvision.datasets.ImageFolder(root=test, transform=test_transforms)
 
-    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=32, shuffle=True)
-    valid_loader = torch.utils.data.DataLoader(dataset=valid_dataset, batch_size=32, shuffle=False)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
+    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
+    valid_loader = torch.utils.data.DataLoader(dataset=valid_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
 
-    input_size = 224 * 224 * 3  # Input size for the MLP model
-    hidden_sizes = [32, 64, 128]
+    lr_range = (0.001, 0.1)
+    weight_decay_range = (0.0001, 0.01)
+    best_accuracy = 0.0
+    best_model = None
+    best_lr = None
+    best_weight_decay = None
+    num_trials = 20
+
+    input_size = 224 * 224 * 3
+    hidden_sizes = [32, 64, 128, 256]
     output_size = 10
-    model = MLP(input_size, hidden_sizes, output_size)
-    # model = models.resnet18(weights=None)
-    # in_features = model.fc.in_features
-    # out_features = 10
-    # model.fc = nn.Linear(in_features, out_features)
-
-    device = set_device()
-    model = model.to(device)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.8, weight_decay=0.005)
 
-    train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 40)
+    for n in range(num_trials):
+        lr = random.uniform(*lr_range)
+        weight_decay = random.uniform(*weight_decay_range)
+
+        print(f"Trial number {n+1}, training with lr={lr}, weight_decay={weight_decay}")
+
+        model = MLP(input_size, hidden_sizes, output_size)
+        device = set_device()
+        model = model.to(device)
+        optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
+
+        # Train the model
+        trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 100)
+
+        # Evaluate the model on the validation set
+        accuracy = evaluate_model_on_test_set(trained_model, valid_loader)
+
+        # Check if the current hyperparameters result in a better accuracy
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            best_model = trained_model
+            best_lr = lr
+            best_weight_decay = weight_decay
 
     checkpoint = torch.load('best_model.pth.tar')
     print(checkpoint['epoch'])
@@ -246,7 +274,9 @@ def set_up_nn(train, valid, test, csv):
 if __name__ == '__main__':
     train, valid, test, csv = get_files()
     set_up_nn(train, valid, test, csv)
-
+    # mean, sd = get_mean_and_sd(test)
+    # print("mean ", mean)
+    # print("sd", sd)
     #------------------------------------------------------------------
     # current_directory = os.getcwd()
     # print(current_directory)
