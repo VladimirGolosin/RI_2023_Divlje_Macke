@@ -9,11 +9,17 @@ Projekat radili:
 Da bi se pokrenuo program potrebno je pokrenuti main.py unutar "convolutional neural network" foldera. Da bi projekat radio potrebno je instalirati odgovarajuće module u virtualno okruženje. Komande za to su:
 
 pip install pandas
+
 pip install numpy
+
 pip install tensorflow
+
 pip install matplotlib
+
 pip install seaborn
+
 pip install scikit-learn
+
 
 Ako postoji folder sa nazivom "trained_model" unutar model foldera, program će iskoristiti taj model da obavi test fazu i predviđanja. Ako ne postoji, odpočinje se treniranje modela.
 
