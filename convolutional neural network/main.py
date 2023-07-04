@@ -2,16 +2,18 @@ import pandas as pd
 import os
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
+from tensorflow.keras.callbacks import ModelCheckpoint
+import warnings
 from classifier import CatClassifier
 from draw import draw_graphs, draw_confusion_matrix, plot_predictions
+import absl.logging
 
-import math
-from sklearn.metrics import confusion_matrix
+
 
 def main():
+    # saving the model gives annoying warning message, so i disabled the warnings
+    absl.logging.set_verbosity(absl.logging.ERROR)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(base_dir, '..', 'data')
 
@@ -26,7 +28,7 @@ def main():
     input_shape = (224, 224, 3)
 
     batch_size = 64
-    epochs = 4
+    epochs = 6
 
     train_datagen = ImageDataGenerator(
         rescale=1.0 / 255,
@@ -63,9 +65,9 @@ def main():
     )
 
     export_dir = os.path.join(base_dir, 'export')
-    export_model_file = os.path.join(export_dir, 'cat_classifier_model')
+    export_model_end = os.path.join(export_dir, 'end_model')
     model_dir = os.path.join(base_dir, 'model')
-    model_file = os.path.join(model_dir, 'cat_classifier_model')
+    model_file = os.path.join(model_dir, 'trained_model')
 
     if os.path.exists(model_file):
         print("Loading pre-existing model from the model folder...")
@@ -74,15 +76,26 @@ def main():
         print("Training the model...")
         model = CatClassifier(num_classes, input_shape)
         model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+        # Define the ModelCheckpoint callback to save the best model based on validation loss
+        checkpoint = ModelCheckpoint(
+            os.path.join(export_dir, 'best_val_loss_model'),
+            monitor='val_loss',  # Monitor validation loss for saving the best model
+            save_best_only=True,  # Save only the best model
+            mode='min'  # Minimize the monitored metric (validation loss)
+        )
+
         history = model.fit(
             train_generator,
             steps_per_epoch=train_generator.samples // batch_size,
             epochs=epochs,
             validation_data=valid_generator,
-            validation_steps=valid_generator.samples // batch_size
+            validation_steps=valid_generator.samples // batch_size,
+            callbacks=[checkpoint]   # Add the ModelCheckpoint callback to the fit method
         )
+
         os.makedirs(export_dir, exist_ok=True)
-        model.save(export_model_file, save_format='tf')
+        model.save(export_model_end, save_format='tf')
 
         draw_graphs(history, export_dir)
 
