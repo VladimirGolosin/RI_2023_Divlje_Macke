@@ -217,7 +217,7 @@ def set_up_nn(train, valid, test, csv):
     ])
 
     train_dataset = torchvision.datasets.ImageFolder(root=train, transform=train_transforms)
-    valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=train_transforms)
+    valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=valid_transforms)
     test_dataset = torchvision.datasets.ImageFolder(root=test, transform=test_transforms)
 
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
@@ -255,7 +255,7 @@ def set_up_nn(train, valid, test, csv):
     # optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
     optimizer = optim.SGD(model.parameters(), lr=0.005, momentum=0.8, weight_decay=0.0005)
     # Train the model
-    trained_model = train_nn(model, valid_loader, test_loader, test_loader, criterion, optimizer, 30)
+    trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 30)
 
     # Evaluate the model on the validation set
     accuracy = evaluate_model_on_test_set(trained_model, valid_loader)
