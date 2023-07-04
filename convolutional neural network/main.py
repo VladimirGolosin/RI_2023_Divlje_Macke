@@ -28,7 +28,7 @@ def main():
     input_shape = (224, 224, 3)
 
     batch_size = 64
-    epochs = 2
+    epochs = 100
 
     train_datagen = ImageDataGenerator(
         rescale=1.0 / 255,
