@@ -1,104 +1,111 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torchvision.transforms as transforms
-from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader
 import pandas as pd
 import os
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
 from classifier import CatClassifier
+from draw import draw_graphs, draw_confusion_matrix, plot_predictions
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
-data_dir = os.path.join(base_dir, '..', 'data')
+import math
+from sklearn.metrics import confusion_matrix
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-transform = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
+def main():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(base_dir, '..', 'data')
 
-train_dataset = ImageFolder(os.path.join(data_dir, 'train'), transform=transform)
-valid_dataset = ImageFolder(os.path.join(data_dir, 'valid'), transform=transform)
-test_dataset = ImageFolder(os.path.join(data_dir, 'test'), transform=transform)
+    train_dir = os.path.join(data_dir, 'train')
+    valid_dir = os.path.join(data_dir, 'valid')
+    test_dir = os.path.join(data_dir, 'test')
 
-train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-valid_loader = DataLoader(valid_dataset, batch_size=64, shuffle=False)
-test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+    train_labels = pd.read_csv(os.path.join(data_dir, 'train.csv'))
+    class_labels = train_labels['label'].unique()
+    num_classes = len(class_labels)
 
-train_labels = pd.read_csv(os.path.join(data_dir, 'train.csv'))
-class_labels = train_labels['label'].unique()
-num_classes = len(class_labels)
+    input_shape = (224, 224, 3)
 
-model = CatClassifier(num_classes).to(device)
+    batch_size = 64
+    epochs = 20
 
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+    train_datagen = ImageDataGenerator(
+        rescale=1.0 / 255,
+        rotation_range=20,
+        width_shift_range=0.2,
+        height_shift_range=0.2,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True
+    )
 
-num_epochs = 10
+    test_datagen = ImageDataGenerator(rescale=1.0 / 255)
 
-for epoch in range(num_epochs):
-    model.train()
-    train_loss = 0.0
+    train_generator = train_datagen.flow_from_directory(
+        train_dir,
+        target_size=input_shape[:2],
+        batch_size=batch_size,
+        class_mode='categorical'
+    )
 
-    for images, labels in train_loader:
-        images = images.to(device)
-        labels = labels.to(device)
+    valid_generator = test_datagen.flow_from_directory(
+        valid_dir,
+        target_size=input_shape[:2],
+        batch_size=batch_size,
+        class_mode='categorical'
+    )
 
-        optimizer.zero_grad()
+    test_generator = test_datagen.flow_from_directory(
+        test_dir,
+        target_size=input_shape[:2],
+        batch_size=batch_size,
+        class_mode='categorical',
+        shuffle=False
+    )
 
-        outputs = model(images)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
+    model = CatClassifier(num_classes, input_shape)
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-        train_loss += loss.item()
+    history = model.fit(
+        train_generator,
+        steps_per_epoch=train_generator.samples // batch_size,
+        epochs=epochs,
+        validation_data=valid_generator,
+        validation_steps=valid_generator.samples // batch_size
+    )
 
-    model.eval()
-    valid_loss = 0.0
-    correct = 0
-    total = 0
+    test_loss, test_accuracy = model.evaluate(test_generator)
+    print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {test_accuracy:.2f}%')
 
-    with torch.no_grad():
-        for images, labels in valid_loader:
-            images = images.to(device)
-            labels = labels.to(device)
+    draw_graphs(history)
 
-            outputs = model(images)
-            loss = criterion(outputs, labels)
-            valid_loss += loss.item()
+    test_predictions = model.predict(test_generator)
+    test_pred_labels = np.argmax(test_predictions, axis=1)
+    draw_confusion_matrix(test_generator.labels, test_pred_labels, class_labels)
 
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
+    print("Generating predictions for random images...")
 
-    train_loss /= len(train_loader)
-    valid_loss /= len(valid_loader)
-    accuracy = 100.0 * correct / total
+    subset_indices = np.random.choice(len(test_generator.filenames), size=30, replace=False)
+    subset_images = []
+    subset_true_labels = []
+    subset_pred_labels = []
 
-    print(
-        f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Valid Loss: {valid_loss:.4f}, Accuracy: {accuracy:.2f}%')
+    for i in subset_indices:
+        image_path = os.path.join(test_dir, test_generator.filenames[i])
+        image = tf.keras.preprocessing.image.load_img(image_path, target_size=input_shape[:2])
+        image = tf.keras.preprocessing.image.img_to_array(image)
+        image = image / 255.0  # Normalize image
+        subset_images.append(image)
 
-model.eval()
-test_loss = 0.0
-correct = 0
-total = 0
+        true_label = test_generator.labels[i]
+        pred = model.predict(np.expand_dims(image, axis=0))
+        pred_label = np.argmax(pred)
 
-with torch.no_grad():
-    for images, labels in test_loader:
-        images = images.to(device)
-        labels = labels.to(device)
+        subset_true_labels.append(true_label)
+        subset_pred_labels.append(pred_label)
 
-        outputs = model(images)
-        loss = criterion(outputs, labels)
-        test_loss += loss.item()
+    plot_predictions(subset_images, subset_true_labels, subset_pred_labels, class_labels)
 
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
 
-test_loss /= len(test_loader)
-accuracy = 100.0 * correct / total
-
-print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {accuracy:.2f}%')
+if __name__ == '__main__':
+    main()
