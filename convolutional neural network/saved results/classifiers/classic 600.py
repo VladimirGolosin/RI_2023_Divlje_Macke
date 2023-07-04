@@ -6,13 +6,13 @@ class CatClassifier(keras.Model):
         super(CatClassifier, self).__init__()
         self.num_classes = num_classes
         self.conv_layers = keras.Sequential([
-            layers.Conv2D(32, kernel_size=3, strides=1, padding='same', activation='relu', input_shape=input_shape),
+            layers.Conv2D(32, kernel_size=3, strides=1, activation='relu', input_shape=input_shape),
             layers.MaxPooling2D(pool_size=2, strides=2),
-            layers.Conv2D(64, kernel_size=3, strides=1, padding='same', activation='relu'),
+            layers.Conv2D(64, kernel_size=3, strides=1, activation='relu'),
             layers.MaxPooling2D(pool_size=2, strides=2),
-            layers.Conv2D(128, kernel_size=5, strides=1, padding='same', activation='relu'),
+            layers.Conv2D(128, kernel_size=3, strides=1, activation='relu'),
             layers.MaxPooling2D(pool_size=2, strides=2),
-            layers.Conv2D(256, kernel_size=7, strides=1, padding='same', activation='relu'),
+            layers.Conv2D(256, kernel_size=3, strides=1, activation='relu'),
             layers.MaxPooling2D(pool_size=2, strides=2),
         ])
 
