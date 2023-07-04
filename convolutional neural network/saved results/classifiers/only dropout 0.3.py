@@ -10,15 +10,17 @@ class CatClassifier(keras.Model):
             layers.MaxPooling2D(pool_size=2, strides=2),
             layers.Conv2D(64, kernel_size=3, strides=1, padding='same', activation='relu'),
             layers.MaxPooling2D(pool_size=2, strides=2),
-            layers.Conv2D(128, kernel_size=5, strides=1, padding='same', activation='relu'),
+            layers.Conv2D(128, kernel_size=3, strides=1, padding='same', activation='relu'),
             layers.MaxPooling2D(pool_size=2, strides=2),
-            layers.Conv2D(256, kernel_size=7, strides=1, padding='same', activation='relu'),
+            layers.Conv2D(256, kernel_size=3, strides=1, padding='same', activation='relu'),
             layers.MaxPooling2D(pool_size=2, strides=2),
         ])
 
         self.fc_layers = keras.Sequential([
             layers.Flatten(),
+            layers.Dropout(0.3),
             layers.Dense(1024, activation='relu'),
+            layers.Dropout(0.3),
             layers.Dense(num_classes, activation='softmax')
         ])
 

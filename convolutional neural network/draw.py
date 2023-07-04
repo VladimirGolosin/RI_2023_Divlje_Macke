@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
 import math
 from sklearn.metrics import confusion_matrix
 
@@ -40,7 +39,6 @@ def draw_confusion_matrix(true_labels, pred_labels, class_labels, export_dir=Non
     plt.xticks(rotation=30)
     plt.yticks(rotation=0)
 
-    # Add explicit labels
     ax = plt.gca()
     ax.xaxis.set_label_coords(0.5, -0.1)
     ax.yaxis.set_label_coords(-0.1, 0.5)

@@ -1,0 +1,642 @@
+D:\programiranje\programiranje_env\Scripts\python.exe "D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\main.py" 
+Found 1650 images belonging to 10 classes.
+Found 470 images belonging to 10 classes.
+Found 250 images belonging to 10 classes.
+Training the model...
+Learning Rate: 0.001
+Epoch 1/100
+25/25 [==============================] - ETA: 0s - loss: 3.3178 - accuracy: 0.1047
+Epoch 1: val_loss improved from inf to 2.21356, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 1: val_accuracy improved from -inf to 0.11161, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 89s 4s/step - loss: 3.3178 - accuracy: 0.1047 - val_loss: 2.2136 - val_accuracy: 0.1116
+Epoch 2/100
+25/25 [==============================] - ETA: 0s - loss: 2.0473 - accuracy: 0.1923
+Epoch 2: val_loss improved from 2.21356 to 1.87713, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 2: val_accuracy improved from 0.11161 to 0.24554, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 88s 4s/step - loss: 2.0473 - accuracy: 0.1923 - val_loss: 1.8771 - val_accuracy: 0.2455
+Epoch 3/100
+25/25 [==============================] - ETA: 0s - loss: 1.8807 - accuracy: 0.2644
+Epoch 3: val_loss did not improve from 1.87713
+
+Epoch 3: val_accuracy improved from 0.24554 to 0.28125, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 89s 4s/step - loss: 1.8807 - accuracy: 0.2644 - val_loss: 1.9048 - val_accuracy: 0.2812
+Epoch 4/100
+25/25 [==============================] - ETA: 0s - loss: 1.7502 - accuracy: 0.3228
+Epoch 4: val_loss improved from 1.87713 to 1.70152, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 4: val_accuracy improved from 0.28125 to 0.35045, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 93s 4s/step - loss: 1.7502 - accuracy: 0.3228 - val_loss: 1.7015 - val_accuracy: 0.3504
+Epoch 5/100
+25/25 [==============================] - ETA: 0s - loss: 1.6409 - accuracy: 0.3594
+Epoch 5: val_loss improved from 1.70152 to 1.63519, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 5: val_accuracy improved from 0.35045 to 0.38839, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 95s 4s/step - loss: 1.6409 - accuracy: 0.3594 - val_loss: 1.6352 - val_accuracy: 0.3884
+Epoch 6/100
+25/25 [==============================] - ETA: 0s - loss: 1.5282 - accuracy: 0.4098
+Epoch 6: val_loss did not improve from 1.63519
+
+Epoch 6: val_accuracy did not improve from 0.38839
+25/25 [==============================] - 93s 4s/step - loss: 1.5282 - accuracy: 0.4098 - val_loss: 1.6960 - val_accuracy: 0.3304
+Epoch 7/100
+25/25 [==============================] - ETA: 0s - loss: 1.5253 - accuracy: 0.4117
+Epoch 7: val_loss improved from 1.63519 to 1.50406, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 7: val_accuracy improved from 0.38839 to 0.39062, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 100s 4s/step - loss: 1.5253 - accuracy: 0.4117 - val_loss: 1.5041 - val_accuracy: 0.3906
+Epoch 8/100
+25/25 [==============================] - ETA: 0s - loss: 1.4283 - accuracy: 0.4388
+Epoch 8: val_loss improved from 1.50406 to 1.44127, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 8: val_accuracy improved from 0.39062 to 0.43750, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 98s 4s/step - loss: 1.4283 - accuracy: 0.4388 - val_loss: 1.4413 - val_accuracy: 0.4375
+Epoch 9/100
+25/25 [==============================] - ETA: 0s - loss: 1.3797 - accuracy: 0.4748
+Epoch 9: val_loss improved from 1.44127 to 1.35131, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 9: val_accuracy improved from 0.43750 to 0.44866, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 98s 4s/step - loss: 1.3797 - accuracy: 0.4748 - val_loss: 1.3513 - val_accuracy: 0.4487
+Epoch 10/100
+25/25 [==============================] - ETA: 0s - loss: 1.3412 - accuracy: 0.5000
+Epoch 10: val_loss did not improve from 1.35131
+
+Epoch 10: val_accuracy did not improve from 0.44866
+25/25 [==============================] - 98s 4s/step - loss: 1.3412 - accuracy: 0.5000 - val_loss: 1.4017 - val_accuracy: 0.4241
+Epoch 11/100
+25/25 [==============================] - ETA: 0s - loss: 1.3457 - accuracy: 0.4773
+Epoch 11: val_loss improved from 1.35131 to 1.33646, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 11: val_accuracy improved from 0.44866 to 0.45089, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 108s 4s/step - loss: 1.3457 - accuracy: 0.4773 - val_loss: 1.3365 - val_accuracy: 0.4509
+Epoch 12/100
+25/25 [==============================] - ETA: 0s - loss: 1.2860 - accuracy: 0.5126
+Epoch 12: val_loss improved from 1.33646 to 1.31238, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 12: val_accuracy improved from 0.45089 to 0.48214, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 107s 4s/step - loss: 1.2860 - accuracy: 0.5126 - val_loss: 1.3124 - val_accuracy: 0.4821
+Epoch 13/100
+25/25 [==============================] - ETA: 0s - loss: 1.2417 - accuracy: 0.5170
+Epoch 13: val_loss improved from 1.31238 to 1.30026, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 13: val_accuracy did not improve from 0.48214
+25/25 [==============================] - 98s 4s/step - loss: 1.2417 - accuracy: 0.5170 - val_loss: 1.3003 - val_accuracy: 0.4688
+Epoch 14/100
+25/25 [==============================] - ETA: 0s - loss: 1.2743 - accuracy: 0.5082
+Epoch 14: val_loss did not improve from 1.30026
+
+Epoch 14: val_accuracy did not improve from 0.48214
+25/25 [==============================] - 102s 4s/step - loss: 1.2743 - accuracy: 0.5082 - val_loss: 1.3945 - val_accuracy: 0.4375
+Epoch 15/100
+25/25 [==============================] - ETA: 0s - loss: 1.1897 - accuracy: 0.5435
+Epoch 15: val_loss did not improve from 1.30026
+
+Epoch 15: val_accuracy did not improve from 0.48214
+25/25 [==============================] - 99s 4s/step - loss: 1.1897 - accuracy: 0.5435 - val_loss: 1.3170 - val_accuracy: 0.4754
+Epoch 16/100
+25/25 [==============================] - ETA: 0s - loss: 1.1365 - accuracy: 0.5504
+Epoch 16: val_loss improved from 1.30026 to 1.19789, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 16: val_accuracy improved from 0.48214 to 0.52232, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 101s 4s/step - loss: 1.1365 - accuracy: 0.5504 - val_loss: 1.1979 - val_accuracy: 0.5223
+Epoch 17/100
+25/25 [==============================] - ETA: 0s - loss: 1.0856 - accuracy: 0.5851
+Epoch 17: val_loss improved from 1.19789 to 1.16456, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 17: val_accuracy did not improve from 0.52232
+25/25 [==============================] - 97s 4s/step - loss: 1.0856 - accuracy: 0.5851 - val_loss: 1.1646 - val_accuracy: 0.5134
+Epoch 18/100
+25/25 [==============================] - ETA: 0s - loss: 1.0901 - accuracy: 0.5820
+Epoch 18: val_loss did not improve from 1.16456
+
+Epoch 18: val_accuracy did not improve from 0.52232
+25/25 [==============================] - 101s 4s/step - loss: 1.0901 - accuracy: 0.5820 - val_loss: 1.3701 - val_accuracy: 0.4621
+Epoch 19/100
+25/25 [==============================] - ETA: 0s - loss: 1.0795 - accuracy: 0.5946
+Epoch 19: val_loss did not improve from 1.16456
+
+Epoch 19: val_accuracy did not improve from 0.52232
+25/25 [==============================] - 107s 4s/step - loss: 1.0795 - accuracy: 0.5946 - val_loss: 1.2408 - val_accuracy: 0.5000
+Epoch 20/100
+25/25 [==============================] - ETA: 0s - loss: 1.0269 - accuracy: 0.6066
+Epoch 20: val_loss improved from 1.16456 to 1.12730, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 20: val_accuracy improved from 0.52232 to 0.54464, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 105s 4s/step - loss: 1.0269 - accuracy: 0.6066 - val_loss: 1.1273 - val_accuracy: 0.5446
+Epoch 21/100
+25/25 [==============================] - ETA: 0s - loss: 1.0044 - accuracy: 0.6166
+Epoch 21: val_loss did not improve from 1.12730
+
+Epoch 21: val_accuracy did not improve from 0.54464
+25/25 [==============================] - 97s 4s/step - loss: 1.0044 - accuracy: 0.6166 - val_loss: 1.2467 - val_accuracy: 0.5290
+Epoch 22/100
+25/25 [==============================] - ETA: 0s - loss: 1.0205 - accuracy: 0.6192
+Epoch 22: val_loss did not improve from 1.12730
+
+Epoch 22: val_accuracy did not improve from 0.54464
+25/25 [==============================] - 97s 4s/step - loss: 1.0205 - accuracy: 0.6192 - val_loss: 1.1756 - val_accuracy: 0.5179
+Epoch 23/100
+25/25 [==============================] - ETA: 0s - loss: 0.9407 - accuracy: 0.6482
+Epoch 23: val_loss improved from 1.12730 to 1.02047, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 23: val_accuracy improved from 0.54464 to 0.55580, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 103s 4s/step - loss: 0.9407 - accuracy: 0.6482 - val_loss: 1.0205 - val_accuracy: 0.5558
+Epoch 24/100
+25/25 [==============================] - ETA: 0s - loss: 0.8935 - accuracy: 0.6532
+Epoch 24: val_loss improved from 1.02047 to 1.01567, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 24: val_accuracy improved from 0.55580 to 0.60938, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 100s 4s/step - loss: 0.8935 - accuracy: 0.6532 - val_loss: 1.0157 - val_accuracy: 0.6094
+Epoch 25/100
+25/25 [==============================] - ETA: 0s - loss: 0.8528 - accuracy: 0.6772
+Epoch 25: val_loss did not improve from 1.01567
+
+Epoch 25: val_accuracy did not improve from 0.60938
+25/25 [==============================] - 96s 4s/step - loss: 0.8528 - accuracy: 0.6772 - val_loss: 1.0856 - val_accuracy: 0.5893
+Epoch 26/100
+25/25 [==============================] - ETA: 0s - loss: 0.8326 - accuracy: 0.6955
+Epoch 26: val_loss did not improve from 1.01567
+
+Epoch 26: val_accuracy did not improve from 0.60938
+25/25 [==============================] - 101s 4s/step - loss: 0.8326 - accuracy: 0.6955 - val_loss: 1.0246 - val_accuracy: 0.6094
+Epoch 27/100
+25/25 [==============================] - ETA: 0s - loss: 0.8209 - accuracy: 0.6967
+Epoch 27: val_loss did not improve from 1.01567
+
+Epoch 27: val_accuracy did not improve from 0.60938
+25/25 [==============================] - 104s 4s/step - loss: 0.8209 - accuracy: 0.6967 - val_loss: 1.1104 - val_accuracy: 0.5982
+Epoch 28/100
+25/25 [==============================] - ETA: 0s - loss: 0.8053 - accuracy: 0.6885
+Epoch 28: val_loss improved from 1.01567 to 0.99948, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 28: val_accuracy did not improve from 0.60938
+25/25 [==============================] - 97s 4s/step - loss: 0.8053 - accuracy: 0.6885 - val_loss: 0.9995 - val_accuracy: 0.6071
+Epoch 29/100
+25/25 [==============================] - ETA: 0s - loss: 0.7710 - accuracy: 0.7043
+Epoch 29: val_loss did not improve from 0.99948
+
+Epoch 29: val_accuracy improved from 0.60938 to 0.62054, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 104s 4s/step - loss: 0.7710 - accuracy: 0.7043 - val_loss: 1.0126 - val_accuracy: 0.6205
+Epoch 30/100
+25/25 [==============================] - ETA: 0s - loss: 0.7427 - accuracy: 0.7257
+Epoch 30: val_loss improved from 0.99948 to 0.92135, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 30: val_accuracy improved from 0.62054 to 0.62946, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 112s 4s/step - loss: 0.7427 - accuracy: 0.7257 - val_loss: 0.9213 - val_accuracy: 0.6295
+Epoch 31/100
+25/25 [==============================] - ETA: 0s - loss: 0.7621 - accuracy: 0.7188
+Epoch 31: val_loss did not improve from 0.92135
+
+Epoch 31: val_accuracy improved from 0.62946 to 0.65179, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 107s 4s/step - loss: 0.7621 - accuracy: 0.7188 - val_loss: 1.0248 - val_accuracy: 0.6518
+Epoch 32/100
+25/25 [==============================] - ETA: 0s - loss: 0.7355 - accuracy: 0.7150
+Epoch 32: val_loss did not improve from 0.92135
+
+Epoch 32: val_accuracy did not improve from 0.65179
+25/25 [==============================] - 109s 4s/step - loss: 0.7355 - accuracy: 0.7150 - val_loss: 1.0550 - val_accuracy: 0.6116
+Epoch 33/100
+25/25 [==============================] - ETA: 0s - loss: 0.6701 - accuracy: 0.7522
+Epoch 33: val_loss improved from 0.92135 to 0.85908, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 33: val_accuracy improved from 0.65179 to 0.68304, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 118s 5s/step - loss: 0.6701 - accuracy: 0.7522 - val_loss: 0.8591 - val_accuracy: 0.6830
+Epoch 34/100
+25/25 [==============================] - ETA: 0s - loss: 0.6643 - accuracy: 0.7434
+Epoch 34: val_loss did not improve from 0.85908
+
+Epoch 34: val_accuracy did not improve from 0.68304
+25/25 [==============================] - 113s 4s/step - loss: 0.6643 - accuracy: 0.7434 - val_loss: 1.0047 - val_accuracy: 0.6406
+Epoch 35/100
+25/25 [==============================] - ETA: 0s - loss: 0.6317 - accuracy: 0.7591
+Epoch 35: val_loss did not improve from 0.85908
+
+Epoch 35: val_accuracy did not improve from 0.68304
+25/25 [==============================] - 111s 4s/step - loss: 0.6317 - accuracy: 0.7591 - val_loss: 0.9253 - val_accuracy: 0.6473
+Epoch 36/100
+25/25 [==============================] - ETA: 0s - loss: 0.6183 - accuracy: 0.7680
+Epoch 36: val_loss did not improve from 0.85908
+
+Epoch 36: val_accuracy did not improve from 0.68304
+25/25 [==============================] - 114s 5s/step - loss: 0.6183 - accuracy: 0.7680 - val_loss: 0.8853 - val_accuracy: 0.6786
+Epoch 37/100
+25/25 [==============================] - ETA: 0s - loss: 0.5553 - accuracy: 0.7932
+Epoch 37: val_loss did not improve from 0.85908
+
+Epoch 37: val_accuracy improved from 0.68304 to 0.68527, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 115s 5s/step - loss: 0.5553 - accuracy: 0.7932 - val_loss: 0.9012 - val_accuracy: 0.6853
+Epoch 38/100
+25/25 [==============================] - ETA: 0s - loss: 0.5542 - accuracy: 0.7970
+Epoch 38: val_loss did not improve from 0.85908
+
+Epoch 38: val_accuracy did not improve from 0.68527
+25/25 [==============================] - 108s 4s/step - loss: 0.5542 - accuracy: 0.7970 - val_loss: 0.9454 - val_accuracy: 0.6652
+Epoch 39/100
+25/25 [==============================] - ETA: 0s - loss: 0.5689 - accuracy: 0.7926
+Epoch 39: val_loss improved from 0.85908 to 0.78195, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 39: val_accuracy improved from 0.68527 to 0.72768, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 105s 4s/step - loss: 0.5689 - accuracy: 0.7926 - val_loss: 0.7819 - val_accuracy: 0.7277
+Epoch 40/100
+25/25 [==============================] - ETA: 0s - loss: 0.5104 - accuracy: 0.8064
+Epoch 40: val_loss did not improve from 0.78195
+
+Epoch 40: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 109s 4s/step - loss: 0.5104 - accuracy: 0.8064 - val_loss: 0.9988 - val_accuracy: 0.6674
+Epoch 41/100
+25/25 [==============================] - ETA: 0s - loss: 0.5727 - accuracy: 0.7749
+Epoch 41: val_loss did not improve from 0.78195
+
+Epoch 41: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 110s 4s/step - loss: 0.5727 - accuracy: 0.7749 - val_loss: 1.1880 - val_accuracy: 0.5982
+Epoch 42/100
+25/25 [==============================] - ETA: 0s - loss: 0.5671 - accuracy: 0.7913
+Epoch 42: val_loss did not improve from 0.78195
+
+Epoch 42: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 111s 4s/step - loss: 0.5671 - accuracy: 0.7913 - val_loss: 0.8901 - val_accuracy: 0.7076
+Epoch 43/100
+25/25 [==============================] - ETA: 0s - loss: 0.5025 - accuracy: 0.8203
+Epoch 43: val_loss did not improve from 0.78195
+
+Epoch 43: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 112s 4s/step - loss: 0.5025 - accuracy: 0.8203 - val_loss: 0.9080 - val_accuracy: 0.6808
+Epoch 44/100
+25/25 [==============================] - ETA: 0s - loss: 0.4588 - accuracy: 0.8266
+Epoch 44: val_loss did not improve from 0.78195
+
+Epoch 44: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 110s 4s/step - loss: 0.4588 - accuracy: 0.8266 - val_loss: 0.9197 - val_accuracy: 0.6786
+Epoch 45/100
+25/25 [==============================] - ETA: 0s - loss: 0.5230 - accuracy: 0.7976
+Epoch 45: val_loss did not improve from 0.78195
+
+Epoch 45: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 109s 4s/step - loss: 0.5230 - accuracy: 0.7976 - val_loss: 0.9400 - val_accuracy: 0.6496
+Epoch 46/100
+25/25 [==============================] - ETA: 0s - loss: 0.5401 - accuracy: 0.7995
+Epoch 46: val_loss did not improve from 0.78195
+
+Epoch 46: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 110s 4s/step - loss: 0.5401 - accuracy: 0.7995 - val_loss: 0.9390 - val_accuracy: 0.6853
+Epoch 47/100
+25/25 [==============================] - ETA: 0s - loss: 0.4829 - accuracy: 0.8253
+Epoch 47: val_loss did not improve from 0.78195
+
+Epoch 47: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 111s 4s/step - loss: 0.4829 - accuracy: 0.8253 - val_loss: 0.9399 - val_accuracy: 0.6696
+Epoch 48/100
+25/25 [==============================] - ETA: 0s - loss: 0.4369 - accuracy: 0.8443
+Epoch 48: val_loss did not improve from 0.78195
+
+Epoch 48: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 110s 4s/step - loss: 0.4369 - accuracy: 0.8443 - val_loss: 0.8588 - val_accuracy: 0.6987
+Epoch 49/100
+25/25 [==============================] - ETA: 0s - loss: 0.4233 - accuracy: 0.8367
+Epoch 49: val_loss did not improve from 0.78195
+
+Epoch 49: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 111s 4s/step - loss: 0.4233 - accuracy: 0.8367 - val_loss: 0.8096 - val_accuracy: 0.7232
+Epoch 50/100
+25/25 [==============================] - ETA: 0s - loss: 0.4257 - accuracy: 0.8386
+Epoch 50: val_loss did not improve from 0.78195
+
+Epoch 50: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 109s 4s/step - loss: 0.4257 - accuracy: 0.8386 - val_loss: 1.0221 - val_accuracy: 0.6964
+Epoch 51/100
+25/25 [==============================] - ETA: 0s - loss: 0.4023 - accuracy: 0.8556
+Epoch 51: val_loss did not improve from 0.78195
+
+Epoch 51: val_accuracy did not improve from 0.72768
+25/25 [==============================] - 109s 4s/step - loss: 0.4023 - accuracy: 0.8556 - val_loss: 0.9403 - val_accuracy: 0.6875
+Epoch 52/100
+25/25 [==============================] - ETA: 0s - loss: 0.4202 - accuracy: 0.8468
+Epoch 52: val_loss improved from 0.78195 to 0.77874, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 52: val_accuracy improved from 0.72768 to 0.73661, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 116s 5s/step - loss: 0.4202 - accuracy: 0.8468 - val_loss: 0.7787 - val_accuracy: 0.7366
+Epoch 53/100
+25/25 [==============================] - ETA: 0s - loss: 0.4049 - accuracy: 0.8455
+Epoch 53: val_loss did not improve from 0.77874
+
+Epoch 53: val_accuracy did not improve from 0.73661
+25/25 [==============================] - 110s 4s/step - loss: 0.4049 - accuracy: 0.8455 - val_loss: 0.8146 - val_accuracy: 0.7232
+Epoch 54/100
+25/25 [==============================] - ETA: 0s - loss: 0.4369 - accuracy: 0.8367
+Epoch 54: val_loss improved from 0.77874 to 0.76407, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 54: val_accuracy did not improve from 0.73661
+25/25 [==============================] - 112s 4s/step - loss: 0.4369 - accuracy: 0.8367 - val_loss: 0.7641 - val_accuracy: 0.7366
+Epoch 55/100
+25/25 [==============================] - ETA: 0s - loss: 0.3938 - accuracy: 0.8430
+Epoch 55: val_loss did not improve from 0.76407
+
+Epoch 55: val_accuracy improved from 0.73661 to 0.75893, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 112s 4s/step - loss: 0.3938 - accuracy: 0.8430 - val_loss: 0.7915 - val_accuracy: 0.7589
+Epoch 56/100
+25/25 [==============================] - ETA: 0s - loss: 0.4152 - accuracy: 0.8424
+Epoch 56: val_loss did not improve from 0.76407
+
+Epoch 56: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 108s 4s/step - loss: 0.4152 - accuracy: 0.8424 - val_loss: 0.8192 - val_accuracy: 0.7321
+Epoch 57/100
+25/25 [==============================] - ETA: 0s - loss: 0.3486 - accuracy: 0.8726
+Epoch 57: val_loss did not improve from 0.76407
+
+Epoch 57: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 111s 4s/step - loss: 0.3486 - accuracy: 0.8726 - val_loss: 0.9340 - val_accuracy: 0.6741
+Epoch 58/100
+25/25 [==============================] - ETA: 0s - loss: 0.3416 - accuracy: 0.8726
+Epoch 58: val_loss did not improve from 0.76407
+
+Epoch 58: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 110s 4s/step - loss: 0.3416 - accuracy: 0.8726 - val_loss: 0.8355 - val_accuracy: 0.7500
+Epoch 59/100
+25/25 [==============================] - ETA: 0s - loss: 0.3557 - accuracy: 0.8644
+Epoch 59: val_loss did not improve from 0.76407
+
+Epoch 59: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 111s 4s/step - loss: 0.3557 - accuracy: 0.8644 - val_loss: 0.7842 - val_accuracy: 0.7344
+Epoch 60/100
+25/25 [==============================] - ETA: 0s - loss: 0.3553 - accuracy: 0.8769
+Epoch 60: val_loss did not improve from 0.76407
+
+Epoch 60: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 110s 4s/step - loss: 0.3553 - accuracy: 0.8769 - val_loss: 0.8220 - val_accuracy: 0.7254
+Epoch 61/100
+25/25 [==============================] - ETA: 0s - loss: 0.3135 - accuracy: 0.8863
+Epoch 61: val_loss did not improve from 0.76407
+
+Epoch 61: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 118s 5s/step - loss: 0.3135 - accuracy: 0.8863 - val_loss: 0.8776 - val_accuracy: 0.7388
+Epoch 62/100
+25/25 [==============================] - ETA: 0s - loss: 0.3145 - accuracy: 0.8859
+Epoch 62: val_loss did not improve from 0.76407
+
+Epoch 62: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 116s 5s/step - loss: 0.3145 - accuracy: 0.8859 - val_loss: 0.9047 - val_accuracy: 0.7500
+Epoch 63/100
+25/25 [==============================] - ETA: 0s - loss: 0.3056 - accuracy: 0.8878
+Epoch 63: val_loss did not improve from 0.76407
+
+Epoch 63: val_accuracy did not improve from 0.75893
+25/25 [==============================] - 111s 4s/step - loss: 0.3056 - accuracy: 0.8878 - val_loss: 0.9601 - val_accuracy: 0.7098
+Epoch 64/100
+25/25 [==============================] - ETA: 0s - loss: 0.3118 - accuracy: 0.8878
+Epoch 64: val_loss did not improve from 0.76407
+
+Epoch 64: val_accuracy improved from 0.75893 to 0.76786, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 118s 5s/step - loss: 0.3118 - accuracy: 0.8878 - val_loss: 0.8047 - val_accuracy: 0.7679
+Epoch 65/100
+25/25 [==============================] - ETA: 0s - loss: 0.2964 - accuracy: 0.8871
+Epoch 65: val_loss did not improve from 0.76407
+
+Epoch 65: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 111s 4s/step - loss: 0.2964 - accuracy: 0.8871 - val_loss: 0.8744 - val_accuracy: 0.7612
+Epoch 66/100
+25/25 [==============================] - ETA: 0s - loss: 0.3382 - accuracy: 0.8834
+Epoch 66: val_loss improved from 0.76407 to 0.76131, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 66: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 116s 5s/step - loss: 0.3382 - accuracy: 0.8834 - val_loss: 0.7613 - val_accuracy: 0.7500
+Epoch 67/100
+25/25 [==============================] - ETA: 0s - loss: 0.3510 - accuracy: 0.8707
+Epoch 67: val_loss did not improve from 0.76131
+
+Epoch 67: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 110s 4s/step - loss: 0.3510 - accuracy: 0.8707 - val_loss: 0.8730 - val_accuracy: 0.7031
+Epoch 68/100
+25/25 [==============================] - ETA: 0s - loss: 0.3206 - accuracy: 0.8865
+Epoch 68: val_loss did not improve from 0.76131
+
+Epoch 68: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 110s 4s/step - loss: 0.3206 - accuracy: 0.8865 - val_loss: 0.8598 - val_accuracy: 0.7567
+Epoch 69/100
+25/25 [==============================] - ETA: 0s - loss: 0.2476 - accuracy: 0.9149
+Epoch 69: val_loss did not improve from 0.76131
+
+Epoch 69: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 112s 4s/step - loss: 0.2476 - accuracy: 0.9149 - val_loss: 0.9402 - val_accuracy: 0.7545
+Epoch 70/100
+25/25 [==============================] - ETA: 0s - loss: 0.2578 - accuracy: 0.9079
+Epoch 70: val_loss did not improve from 0.76131
+
+Epoch 70: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 108s 4s/step - loss: 0.2578 - accuracy: 0.9079 - val_loss: 1.0104 - val_accuracy: 0.7210
+Epoch 71/100
+25/25 [==============================] - ETA: 0s - loss: 0.2566 - accuracy: 0.9042
+Epoch 71: val_loss did not improve from 0.76131
+
+Epoch 71: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 108s 4s/step - loss: 0.2566 - accuracy: 0.9042 - val_loss: 0.9316 - val_accuracy: 0.7589
+Epoch 72/100
+25/25 [==============================] - ETA: 0s - loss: 0.2299 - accuracy: 0.9212
+Epoch 72: val_loss did not improve from 0.76131
+
+Epoch 72: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 111s 4s/step - loss: 0.2299 - accuracy: 0.9212 - val_loss: 0.9982 - val_accuracy: 0.7388
+Epoch 73/100
+25/25 [==============================] - ETA: 0s - loss: 0.2627 - accuracy: 0.9117
+Epoch 73: val_loss did not improve from 0.76131
+
+Epoch 73: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 110s 4s/step - loss: 0.2627 - accuracy: 0.9117 - val_loss: 0.7970 - val_accuracy: 0.7545
+Epoch 74/100
+25/25 [==============================] - ETA: 0s - loss: 0.2500 - accuracy: 0.9048
+Epoch 74: val_loss improved from 0.76131 to 0.75044, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 74: val_accuracy did not improve from 0.76786
+25/25 [==============================] - 114s 5s/step - loss: 0.2500 - accuracy: 0.9048 - val_loss: 0.7504 - val_accuracy: 0.7656
+Epoch 75/100
+25/25 [==============================] - ETA: 0s - loss: 0.2745 - accuracy: 0.8960
+Epoch 75: val_loss did not improve from 0.75044
+
+Epoch 75: val_accuracy improved from 0.76786 to 0.79464, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 106s 4s/step - loss: 0.2745 - accuracy: 0.8960 - val_loss: 0.8123 - val_accuracy: 0.7946
+Epoch 76/100
+25/25 [==============================] - ETA: 0s - loss: 0.3168 - accuracy: 0.8884
+Epoch 76: val_loss improved from 0.75044 to 0.74145, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 76: val_accuracy did not improve from 0.79464
+25/25 [==============================] - 115s 5s/step - loss: 0.3168 - accuracy: 0.8884 - val_loss: 0.7414 - val_accuracy: 0.7790
+Epoch 77/100
+25/25 [==============================] - ETA: 0s - loss: 0.2370 - accuracy: 0.9155
+Epoch 77: val_loss improved from 0.74145 to 0.72264, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 77: val_accuracy improved from 0.79464 to 0.80134, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 119s 5s/step - loss: 0.2370 - accuracy: 0.9155 - val_loss: 0.7226 - val_accuracy: 0.8013
+Epoch 78/100
+25/25 [==============================] - ETA: 0s - loss: 0.2187 - accuracy: 0.9199
+Epoch 78: val_loss did not improve from 0.72264
+
+Epoch 78: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 111s 4s/step - loss: 0.2187 - accuracy: 0.9199 - val_loss: 0.9417 - val_accuracy: 0.7522
+Epoch 79/100
+25/25 [==============================] - ETA: 0s - loss: 0.2700 - accuracy: 0.9048
+Epoch 79: val_loss did not improve from 0.72264
+
+Epoch 79: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 113s 5s/step - loss: 0.2700 - accuracy: 0.9048 - val_loss: 0.8079 - val_accuracy: 0.7656
+Epoch 80/100
+25/25 [==============================] - ETA: 0s - loss: 0.2861 - accuracy: 0.9010
+Epoch 80: val_loss did not improve from 0.72264
+
+Epoch 80: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 115s 5s/step - loss: 0.2861 - accuracy: 0.9010 - val_loss: 0.9015 - val_accuracy: 0.7746
+Epoch 81/100
+25/25 [==============================] - ETA: 0s - loss: 0.2269 - accuracy: 0.9174
+Epoch 81: val_loss did not improve from 0.72264
+
+Epoch 81: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 112s 4s/step - loss: 0.2269 - accuracy: 0.9174 - val_loss: 1.1578 - val_accuracy: 0.7344
+Epoch 82/100
+25/25 [==============================] - ETA: 0s - loss: 0.2425 - accuracy: 0.9098
+Epoch 82: val_loss did not improve from 0.72264
+
+Epoch 82: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 113s 5s/step - loss: 0.2425 - accuracy: 0.9098 - val_loss: 0.7895 - val_accuracy: 0.7656
+Epoch 83/100
+25/25 [==============================] - ETA: 0s - loss: 0.2106 - accuracy: 0.9275
+Epoch 83: val_loss did not improve from 0.72264
+
+Epoch 83: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 115s 5s/step - loss: 0.2106 - accuracy: 0.9275 - val_loss: 0.8404 - val_accuracy: 0.7701
+Epoch 84/100
+25/25 [==============================] - ETA: 0s - loss: 0.1988 - accuracy: 0.9262
+Epoch 84: val_loss improved from 0.72264 to 0.69414, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 84: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 116s 5s/step - loss: 0.1988 - accuracy: 0.9262 - val_loss: 0.6941 - val_accuracy: 0.7991
+Epoch 85/100
+25/25 [==============================] - ETA: 0s - loss: 0.1862 - accuracy: 0.9319
+Epoch 85: val_loss did not improve from 0.69414
+
+Epoch 85: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 112s 5s/step - loss: 0.1862 - accuracy: 0.9319 - val_loss: 0.7908 - val_accuracy: 0.7812
+Epoch 86/100
+25/25 [==============================] - ETA: 0s - loss: 0.2048 - accuracy: 0.9275
+Epoch 86: val_loss did not improve from 0.69414
+
+Epoch 86: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 110s 4s/step - loss: 0.2048 - accuracy: 0.9275 - val_loss: 0.9055 - val_accuracy: 0.7388
+Epoch 87/100
+25/25 [==============================] - ETA: 0s - loss: 0.2600 - accuracy: 0.9079
+Epoch 87: val_loss did not improve from 0.69414
+
+Epoch 87: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 108s 4s/step - loss: 0.2600 - accuracy: 0.9079 - val_loss: 0.9340 - val_accuracy: 0.7478
+Epoch 88/100
+25/25 [==============================] - ETA: 0s - loss: 0.2080 - accuracy: 0.9256
+Epoch 88: val_loss did not improve from 0.69414
+
+Epoch 88: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 110s 4s/step - loss: 0.2080 - accuracy: 0.9256 - val_loss: 0.9309 - val_accuracy: 0.7500
+Epoch 89/100
+25/25 [==============================] - ETA: 0s - loss: 0.2154 - accuracy: 0.9212
+Epoch 89: val_loss did not improve from 0.69414
+
+Epoch 89: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 110s 4s/step - loss: 0.2154 - accuracy: 0.9212 - val_loss: 0.9736 - val_accuracy: 0.7545
+Epoch 90/100
+25/25 [==============================] - ETA: 0s - loss: 0.2552 - accuracy: 0.9124
+Epoch 90: val_loss did not improve from 0.69414
+
+Epoch 90: val_accuracy did not improve from 0.80134
+25/25 [==============================] - 112s 4s/step - loss: 0.2552 - accuracy: 0.9124 - val_loss: 0.9301 - val_accuracy: 0.7545
+Epoch 91/100
+25/25 [==============================] - ETA: 0s - loss: 0.2656 - accuracy: 0.9029
+Epoch 91: val_loss did not improve from 0.69414
+
+Epoch 91: val_accuracy improved from 0.80134 to 0.80357, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_acc_model
+25/25 [==============================] - 112s 4s/step - loss: 0.2656 - accuracy: 0.9029 - val_loss: 0.7173 - val_accuracy: 0.8036
+Epoch 92/100
+25/25 [==============================] - ETA: 0s - loss: 0.2113 - accuracy: 0.9218
+Epoch 92: val_loss did not improve from 0.69414
+
+Epoch 92: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 112s 4s/step - loss: 0.2113 - accuracy: 0.9218 - val_loss: 0.9650 - val_accuracy: 0.7835
+Epoch 93/100
+25/25 [==============================] - ETA: 0s - loss: 0.1793 - accuracy: 0.9306
+Epoch 93: val_loss did not improve from 0.69414
+
+Epoch 93: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 110s 4s/step - loss: 0.1793 - accuracy: 0.9306 - val_loss: 0.9369 - val_accuracy: 0.7790
+Epoch 94/100
+25/25 [==============================] - ETA: 0s - loss: 0.1457 - accuracy: 0.9489
+Epoch 94: val_loss did not improve from 0.69414
+
+Epoch 94: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 109s 4s/step - loss: 0.1457 - accuracy: 0.9489 - val_loss: 0.8827 - val_accuracy: 0.7946
+Epoch 95/100
+25/25 [==============================] - ETA: 0s - loss: 0.1663 - accuracy: 0.9395
+Epoch 95: val_loss did not improve from 0.69414
+
+Epoch 95: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 109s 4s/step - loss: 0.1663 - accuracy: 0.9395 - val_loss: 0.7512 - val_accuracy: 0.7879
+Epoch 96/100
+25/25 [==============================] - ETA: 0s - loss: 0.1661 - accuracy: 0.9515
+Epoch 96: val_loss did not improve from 0.69414
+
+Epoch 96: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 109s 4s/step - loss: 0.1661 - accuracy: 0.9515 - val_loss: 0.8024 - val_accuracy: 0.7835
+Epoch 97/100
+25/25 [==============================] - ETA: 0s - loss: 0.1663 - accuracy: 0.9458
+Epoch 97: val_loss did not improve from 0.69414
+
+Epoch 97: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 110s 4s/step - loss: 0.1663 - accuracy: 0.9458 - val_loss: 0.7978 - val_accuracy: 0.7902
+Epoch 98/100
+25/25 [==============================] - ETA: 0s - loss: 0.2310 - accuracy: 0.9149
+Epoch 98: val_loss did not improve from 0.69414
+
+Epoch 98: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 112s 4s/step - loss: 0.2310 - accuracy: 0.9149 - val_loss: 0.8281 - val_accuracy: 0.7790
+Epoch 99/100
+25/25 [==============================] - ETA: 0s - loss: 0.2481 - accuracy: 0.9174
+Epoch 99: val_loss did not improve from 0.69414
+
+Epoch 99: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 110s 4s/step - loss: 0.2481 - accuracy: 0.9174 - val_loss: 0.8901 - val_accuracy: 0.7388
+Epoch 100/100
+25/25 [==============================] - ETA: 0s - loss: 0.1761 - accuracy: 0.9382
+Epoch 100: val_loss improved from 0.69414 to 0.69376, saving model to D:\programiranje\ai\RI_2023_Divlje_Macke\convolutional neural network\export\best_val_loss_model
+
+Epoch 100: val_accuracy did not improve from 0.80357
+25/25 [==============================] - 112s 4s/step - loss: 0.1761 - accuracy: 0.9382 - val_loss: 0.6938 - val_accuracy: 0.7924
+4/4 [==============================] - 4s 1s/step - loss: 0.9978 - accuracy: 0.7560
+Test Loss: 0.9978, Test Accuracy: 0.76%
+4/4 [==============================] - 4s 1s/step
+Generating predictions for random images...
+1/1 [==============================] - 0s 103ms/step
+1/1 [==============================] - 0s 48ms/step
+1/1 [==============================] - 0s 46ms/step
+1/1 [==============================] - 0s 53ms/step
+1/1 [==============================] - 0s 46ms/step
+1/1 [==============================] - 0s 55ms/step
+1/1 [==============================] - 0s 54ms/step
+1/1 [==============================] - 0s 44ms/step
+1/1 [==============================] - 0s 46ms/step
+1/1 [==============================] - 0s 51ms/step
+1/1 [==============================] - 0s 53ms/step
+1/1 [==============================] - 0s 46ms/step
+1/1 [==============================] - 0s 52ms/step
+1/1 [==============================] - 0s 54ms/step
+1/1 [==============================] - 0s 46ms/step
+1/1 [==============================] - 0s 48ms/step
+1/1 [==============================] - 0s 45ms/step
+1/1 [==============================] - 0s 46ms/step
+1/1 [==============================] - 0s 53ms/step
+1/1 [==============================] - 0s 50ms/step
+1/1 [==============================] - 0s 48ms/step
+1/1 [==============================] - 0s 50ms/step
+1/1 [==============================] - 0s 56ms/step
+1/1 [==============================] - 0s 50ms/step
+1/1 [==============================] - 0s 55ms/step
+1/1 [==============================] - 0s 49ms/step
+1/1 [==============================] - 0s 49ms/step
+1/1 [==============================] - 0s 49ms/step
+1/1 [==============================] - 0s 49ms/step
+1/1 [==============================] - 0s 49ms/step
+
+Process finished with exit code 0

@@ -4,7 +4,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint
-import warnings
 from classifier import CatClassifier
 from draw import draw_graphs, draw_confusion_matrix, plot_predictions
 import absl.logging
@@ -75,7 +74,10 @@ def main():
     else:
         print("Training the model...")
         model = CatClassifier(num_classes, input_shape)
-        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+        optimizer = tf.keras.optimizers.Adam()
+        print("Learning Rate:", optimizer.learning_rate.numpy())
+
+        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
         checkpoint_val_loss = ModelCheckpoint(
             os.path.join(export_dir, 'best_val_loss_model'),
