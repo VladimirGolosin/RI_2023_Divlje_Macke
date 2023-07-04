@@ -28,7 +28,7 @@ def main():
     input_shape = (224, 224, 3)
 
     batch_size = 64
-    epochs = 6
+    epochs = 2
 
     train_datagen = ImageDataGenerator(
         rescale=1.0 / 255,
@@ -77,12 +77,20 @@ def main():
         model = CatClassifier(num_classes, input_shape)
         model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-        # Define the ModelCheckpoint callback to save the best model based on validation loss
-        checkpoint = ModelCheckpoint(
+        checkpoint_val_loss = ModelCheckpoint(
             os.path.join(export_dir, 'best_val_loss_model'),
-            monitor='val_loss',  # Monitor validation loss for saving the best model
-            save_best_only=True,  # Save only the best model
-            mode='min'  # Minimize the monitored metric (validation loss)
+            monitor='val_loss',
+            save_best_only=True,
+            mode='min',
+            verbose=1
+        )
+
+        checkpoint_val_acc = ModelCheckpoint(
+            os.path.join(export_dir, 'best_val_acc_model'),
+            monitor='val_accuracy',
+            mode='max',
+            save_best_only=True,
+            verbose=1
         )
 
         history = model.fit(
@@ -91,7 +99,7 @@ def main():
             epochs=epochs,
             validation_data=valid_generator,
             validation_steps=valid_generator.samples // batch_size,
-            callbacks=[checkpoint]   # Add the ModelCheckpoint callback to the fit method
+            callbacks=[checkpoint_val_loss,checkpoint_val_acc]
         )
 
         os.makedirs(export_dir, exist_ok=True)
