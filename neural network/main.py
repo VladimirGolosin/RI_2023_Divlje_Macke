@@ -11,6 +11,7 @@ from draw import draw_graphs, draw_confusion_matrix, plot_predictions
 
 import math
 from sklearn.metrics import confusion_matrix
+import random
 
 
 def train_preprocess(image):
@@ -67,10 +68,10 @@ def main():
     class_labels = train_labels['label'].unique()
     num_classes = len(class_labels)
 
-    input_shape = (224, 224, 3)
+    input_shape = (224, 224)
 
     batch_size = 64
-    epochs = 20
+    epochs = 150
 
     train_datagen = ImageDataGenerator(
         rescale=1.0 / 255,
@@ -111,12 +112,19 @@ def main():
     )
 
     input_size = 224 * 224 * 3  # Input size for the MLP model
-    hidden_sizes = [32, 64, 128, 256]
+    hidden_sizes = [256, 256, 256, 256]
     output_size = num_classes
-    model = MLP(input_size, hidden_sizes, output_size)
-    lr = 0.005
+    input_shape = (224, 224, 3)
+    model = MLP(input_shape, hidden_sizes, output_size)
+    lr_range = (0.001, 0.1)
+    weight_decay_range = (0.0001, 0.01)
+    lr = random.uniform(*lr_range)
+    print('lr ', lr)
+    weight_decay = random.uniform(*weight_decay_range)
+    print('wd ', weight_decay)
+    # lr = 0.005
     momentum = 0.8
-    weight_decay = 0.001
+    # weight_decay = 0.0005
 
     optimizer = SGD(learning_rate=lr, momentum=momentum, weight_decay=weight_decay)
 

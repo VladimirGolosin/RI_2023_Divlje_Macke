@@ -217,7 +217,7 @@ def set_up_nn(train, valid, test, csv):
     ])
 
     train_dataset = torchvision.datasets.ImageFolder(root=train, transform=train_transforms)
-    valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=valid_transforms)
+    valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=train_transforms)
     test_dataset = torchvision.datasets.ImageFolder(root=test, transform=test_transforms)
 
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
@@ -226,6 +226,7 @@ def set_up_nn(train, valid, test, csv):
 
     lr_range = (0.001, 0.1)
     weight_decay_range = (0.0001, 0.01)
+    dropout_range = (0.1, 0.9)
     best_accuracy = 0.0
     best_model = None
     best_lr = None
@@ -233,34 +234,38 @@ def set_up_nn(train, valid, test, csv):
     num_trials = 20
 
     input_size = 224 * 224 * 3
-    hidden_sizes = [32, 64, 128, 256]
+    # hidden_sizes = [32, 64, 128, 256]
+    hidden_sizes = 512
     output_size = 10
 
     criterion = nn.CrossEntropyLoss()
+    dropout_rate = 0.2
 
-    for n in range(num_trials):
-        lr = random.uniform(*lr_range)
-        weight_decay = random.uniform(*weight_decay_range)
 
-        print(f"Trial number {n+1}, training with lr={lr}, weight_decay={weight_decay}")
+    # for n in range(num_trials):
+    lr = random.uniform(*lr_range)
+    weight_decay = random.uniform(*weight_decay_range)
+    # dropout_rate = random.uniform(*dropout_range)
 
-        model = MLP(input_size, hidden_sizes, output_size)
-        device = set_device()
-        model = model.to(device)
-        optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
+    # print(f"Trial number {n+1}, training with lr={lr}, weight_decay={weight_decay}, dropout={dropout_rate}")
 
-        # Train the model
-        trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 100)
+    model = MLP(input_size, hidden_sizes, output_size, dropout_rate)
+    device = set_device()
+    model = model.to(device)
+    # optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
+    optimizer = optim.SGD(model.parameters(), lr=0.005, momentum=0.8, weight_decay=0.0005)
+    # Train the model
+    trained_model = train_nn(model, valid_loader, test_loader, test_loader, criterion, optimizer, 30)
 
-        # Evaluate the model on the validation set
-        accuracy = evaluate_model_on_test_set(trained_model, valid_loader)
+    # Evaluate the model on the validation set
+    accuracy = evaluate_model_on_test_set(trained_model, valid_loader)
 
-        # Check if the current hyperparameters result in a better accuracy
-        if accuracy > best_accuracy:
-            best_accuracy = accuracy
-            best_model = trained_model
-            best_lr = lr
-            best_weight_decay = weight_decay
+    # Check if the current hyperparameters result in a better accuracy
+    if accuracy > best_accuracy:
+        best_accuracy = accuracy
+        best_model = trained_model
+        best_lr = lr
+        best_weight_decay = weight_decay
 
     checkpoint = torch.load('best_model.pth.tar')
     print(checkpoint['epoch'])
@@ -273,43 +278,43 @@ def set_up_nn(train, valid, test, csv):
 
 if __name__ == '__main__':
     train, valid, test, csv = get_files()
-    set_up_nn(train, valid, test, csv)
+    # set_up_nn(train, valid, test, csv)
     # mean, sd = get_mean_and_sd(test)
     # print("mean ", mean)
     # print("sd", sd)
     #------------------------------------------------------------------
-    # current_directory = os.getcwd()
-    # print(current_directory)
-    # # parent_directory = os.path.dirname(current_directory)
-    # # os.chdir(parent_directory)
-    # classes = ['AFRICAN LEOPARD',
-    #            'CARACAL',
-    #            'CHEETAH',
-    #            'CLOUDED LEOPARD',
-    #            'JAGUAR',
-    #            'LION',
-    #            'OCELOT',
-    #            'PUMA',
-    #            'SNOW LEOPARD',
-    #            'TIGER']
-    # model = torch.load('best_model.pth')
-    # mean = [0.4851, 0.4405, 0.3614]
-    # sd = [0.2213, 0.2092, 0.2036]
-    # image_transform = transforms.Compose([
-    #     transforms.Resize((224,224)),
-    #     transforms.ToTensor(),
-    #     transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
-    # ])
-    # test_dataset = torchvision.datasets.ImageFolder(root=test, transform=image_transform)
-    # test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
-    # evaluate_model_on_test_set(model, test_loader)
-    # classify(model, image_transform, 'african_leopard_8', classes, 'african_leopard')
-    # classify(model, image_transform, 'caracal_6', classes, 'caracal')
-    # classify(model, image_transform, 'cheetah_7', classes, 'cheetah')
-    # classify(model, image_transform, 'clouded_leopard_9', classes, 'clouded_leopard')
-    # classify(model, image_transform, 'jaguar_5', classes, 'jaguar')
-    # classify(model, image_transform, 'lion_6', classes, 'lion')
-    # classify(model, image_transform, 'ocelot_13', classes, 'ocelot')
-    # classify(model, image_transform, 'puma_20', classes, 'puma')
-    # classify(model, image_transform, 'snow_leopard_3', classes, 'snow_leopard')
-    # classify(model, image_transform, 'tiger_3', classes, 'tiger')
+    current_directory = os.getcwd()
+    print(current_directory)
+    # parent_directory = os.path.dirname(current_directory)
+    # os.chdir(parent_directory)
+    classes = ['AFRICAN LEOPARD',
+               'CARACAL',
+               'CHEETAH',
+               'CLOUDED LEOPARD',
+               'JAGUAR',
+               'LION',
+               'OCELOT',
+               'PUMA',
+               'SNOW LEOPARD',
+               'TIGER']
+    model = torch.load('best_model.pth')
+    mean = [0.4851, 0.4405, 0.3614]
+    sd = [0.2213, 0.2092, 0.2036]
+    image_transform = transforms.Compose([
+        transforms.Resize((224,224)),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+    test_dataset = torchvision.datasets.ImageFolder(root=test, transform=image_transform)
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
+    evaluate_model_on_test_set(model, test_loader)
+    classify(model, image_transform, 'african_leopard_8', classes, 'african_leopard')
+    classify(model, image_transform, 'caracal_6', classes, 'caracal')
+    classify(model, image_transform, 'cheetah_7', classes, 'cheetah')
+    classify(model, image_transform, 'clouded_leopard_9', classes, 'clouded_leopard')
+    classify(model, image_transform, 'jaguar_5', classes, 'jaguar')
+    classify(model, image_transform, 'lion_6', classes, 'lion')
+    classify(model, image_transform, 'ocelot_13', classes, 'ocelot')
+    classify(model, image_transform, 'puma_20', classes, 'puma')
+    classify(model, image_transform, 'snow_leopard_3', classes, 'snow_leopard')
+    classify(model, image_transform, 'tiger_3', classes, 'tiger')
