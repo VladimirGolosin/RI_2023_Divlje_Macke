@@ -278,43 +278,4 @@ def set_up_nn(train, valid, test, csv):
 
 if __name__ == '__main__':
     train, valid, test, csv = get_files()
-    # set_up_nn(train, valid, test, csv)
-    # mean, sd = get_mean_and_sd(test)
-    # print("mean ", mean)
-    # print("sd", sd)
-    #------------------------------------------------------------------
-    current_directory = os.getcwd()
-    print(current_directory)
-    # parent_directory = os.path.dirname(current_directory)
-    # os.chdir(parent_directory)
-    classes = ['AFRICAN LEOPARD',
-               'CARACAL',
-               'CHEETAH',
-               'CLOUDED LEOPARD',
-               'JAGUAR',
-               'LION',
-               'OCELOT',
-               'PUMA',
-               'SNOW LEOPARD',
-               'TIGER']
-    model = torch.load('best_model.pth')
-    mean = [0.4851, 0.4405, 0.3614]
-    sd = [0.2213, 0.2092, 0.2036]
-    image_transform = transforms.Compose([
-        transforms.Resize((224,224)),
-        transforms.ToTensor(),
-        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
-    ])
-    test_dataset = torchvision.datasets.ImageFolder(root=test, transform=image_transform)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
-    evaluate_model_on_test_set(model, test_loader)
-    classify(model, image_transform, 'african_leopard_8', classes, 'african_leopard')
-    classify(model, image_transform, 'caracal_6', classes, 'caracal')
-    classify(model, image_transform, 'cheetah_7', classes, 'cheetah')
-    classify(model, image_transform, 'clouded_leopard_9', classes, 'clouded_leopard')
-    classify(model, image_transform, 'jaguar_5', classes, 'jaguar')
-    classify(model, image_transform, 'lion_6', classes, 'lion')
-    classify(model, image_transform, 'ocelot_13', classes, 'ocelot')
-    classify(model, image_transform, 'puma_20', classes, 'puma')
-    classify(model, image_transform, 'snow_leopard_3', classes, 'snow_leopard')
-    classify(model, image_transform, 'tiger_3', classes, 'tiger')
+    set_up_nn(train, valid, test, csv)
