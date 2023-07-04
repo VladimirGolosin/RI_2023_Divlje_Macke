@@ -21,11 +21,16 @@ Kada se završi treniranje modela, grafikoni, završni model i modeli najboljih 
 
 ## Pokretanje neuronske mreže:
 Da bi projekat radio potrebno je instalirati odgovarajuće module u virtualno okruženje. Komande za to su:
-pip install os,  
-pip install torch torchvision, 
-pip install matplotlib, 
-pip install numpy, 
-pip install Pillow, 
+pip install os
+
+pip install torch torchvision
+
+pip install matplotlib
+
+pip install numpy
+
+pip install Pillow
+
 
 Treniranje neuronske mreže se postiže pokretanjem main funkcije u fajlu "neural network"/neural_network.py, dok se učitavnje modela postiže pokretanjem maina u "neural network"/load_model.py. Moguće je raditi ručno testiranje fotografija njihovim prebacivanjem u folder RI_2023_Divlje_Macke i pisanjem naziva (sa ekstenzijom) kao trećeg parametra funkcije classify, kako je urađeno u primeru. 
 
