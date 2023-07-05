@@ -302,7 +302,7 @@ def set_up_nn(train, valid, test, csv):
     device = set_device()
     model = model.to(device)
     # optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
-    optimizer = optim.Adam(model.parameters(), lr=0.005, weight_decay=0.0005)
+    optimizer = optim.Adam(model.parameters())
 
     trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 400)
 
