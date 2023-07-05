@@ -15,7 +15,7 @@ import itertools
 import torch.nn.functional as F
 # import torchvision.transforms.functional as F
 
-batch_size = 64
+batch_size = 32
 
 
 def get_files():
@@ -65,7 +65,7 @@ def get_mean_and_sd(train_path):
     return mean, sd
 
 
-# CW ruzno, ruka raste na glavi itd
+# CW ruzno
 def show_transformed_images(dataset):
     loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=6, shuffle=True)
     batch = next(iter(loader))
@@ -151,7 +151,6 @@ def train_nn(model, train_loader, valid_loader, test_loader, criteria, optimizer
               % (valid_correct, valid_total, valid_accuracy, valid_loss))
 
         if valid_accuracy > best_result:
-            # print('haloooooooooooooooo')
             best_result = valid_accuracy
             # save_model(model, epoch, optimizer, best_result)
             best_model = model
@@ -186,7 +185,7 @@ def evaluate_model_on_test_set(model, test_loader):
     return epoch_acc
 
 
-def classify(model, image_transforms, image_path, classes, real=''):
+def classify(model, image_transforms, image_path, classes, real='unknown'):
     model = model.eval()
     image = Image.open(image_path + '.jpg')
     image = image_transforms(image).float()
@@ -286,11 +285,11 @@ def set_up_nn(train, valid, test, csv):
 
     input_size = 224 * 224 * 3
     # hidden_sizes = [32, 64, 128, 256]
-    hidden_sizes = 64
+    hidden_sizes = 32
     output_size = 10
 
     criterion = nn.CrossEntropyLoss()
-    dropout_rate = 0.8
+    dropout_rate = 0.4
 
     # for n in range(num_trials):
     lr = random.uniform(*lr_range)
@@ -303,19 +302,17 @@ def set_up_nn(train, valid, test, csv):
     device = set_device()
     model = model.to(device)
     # optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
-    optimizer = optim.Adam(model.parameters())
-    # Train the model
-    trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 150)
+    optimizer = optim.Adam(model.parameters(), lr=0.005, weight_decay=0.0005)
 
-    # Evaluate the model on the validation set
+    trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 400)
+
     accuracy = evaluate_model_on_test_set(trained_model, valid_loader)
 
-    # Check if the current hyperparameters result in a better accuracy
-    if accuracy > best_accuracy:
-        best_accuracy = accuracy
-        best_model = trained_model
-        best_lr = lr
-        best_weight_decay = weight_decay
+    # if accuracy > best_accuracy:
+    #     best_accuracy = accuracy
+    #     best_model = trained_model
+    #     best_lr = lr
+    #     best_weight_decay = weight_decay
 
     checkpoint = torch.load('best_model.pth.tar')
     print(checkpoint['epoch'])

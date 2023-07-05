@@ -6,15 +6,12 @@ class MLP(Model):
     def __init__(self, input_size, hidden_sizes, output_size):
         super(MLP, self).__init__()
 
-        # Define the input layer
         self.flatten = Flatten(input_shape=(input_size,))
 
-        # Define the hidden layers
         self.hidden_layers = []
         for size in hidden_sizes:
             self.hidden_layers.append(Dense(size, activation='relu'))
 
-        # Define the output layer
         self.output_layer = Dense(output_size, activation='softmax')
 
     def call(self, inputs):
