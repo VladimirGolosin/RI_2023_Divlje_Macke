@@ -12,8 +12,11 @@ import PIL.Image as Image
 from MLPT import MLP
 import random
 import itertools
+import torch.nn.functional as F
+# import torchvision.transforms.functional as F
 
 batch_size = 64
+
 
 def get_files():
     current_directory = os.getcwd()
@@ -94,10 +97,12 @@ def save_model(model, epoch, optimizer, best):
 def train_nn(model, train_loader, valid_loader, test_loader, criteria, optimizer, n_epochs):
     device = set_device()
     best_result = 0
-    best_model = None
+    best_model = model
+    epoch_best = 1
 
     for epoch in range(n_epochs):
         print("Epoch no %d " % (epoch + 1))
+        model = best_model
 
         # Training
         model.train()
@@ -126,7 +131,6 @@ def train_nn(model, train_loader, valid_loader, test_loader, criteria, optimizer
         print("     -Training. Got %d / %d images correctly (%.3f%%). Train loss: %.3f"
               % (train_correct, train_total, train_accuracy, train_loss))
 
-
         # Validating
         model.eval()
         with torch.no_grad():
@@ -146,13 +150,16 @@ def train_nn(model, train_loader, valid_loader, test_loader, criteria, optimizer
         print("     -Validating. Got %d / %d images correctly (%.3f%%). Valid loss: %.3f"
               % (valid_correct, valid_total, valid_accuracy, valid_loss))
 
-        if train_accuracy > best_result:
-            best_result = train_accuracy
-            save_model(model, epoch, optimizer, best_result)
+        if valid_accuracy > best_result:
+            # print('haloooooooooooooooo')
+            best_result = valid_accuracy
+            # save_model(model, epoch, optimizer, best_result)
             best_model = model
+            epoch_best = epoch
+    save_model(best_model, epoch_best, optimizer, best_result)
     evaluate_model_on_test_set(best_model, test_loader)
     print("Finished")
-    return model
+    return best_model
 
 
 def evaluate_model_on_test_set(model, test_loader):
@@ -178,6 +185,7 @@ def evaluate_model_on_test_set(model, test_loader):
           % (predicted_correctly_on_epoch, total, epoch_acc))
     return epoch_acc
 
+
 def classify(model, image_transforms, image_path, classes, real=''):
     model = model.eval()
     image = Image.open(image_path + '.jpg')
@@ -189,13 +197,46 @@ def classify(model, image_transforms, image_path, classes, real=''):
 
     print("Prediction: " + classes[predicted.item()] + ", real: " + real)
 
+
+
 def set_up_nn(train, valid, test, csv):
     mean = [0.4851, 0.4405, 0.3614]
     sd = [0.2213, 0.2092, 0.2036]
-    train_transforms = transforms.Compose([
+    train_transforms_crop = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(10),
+        transforms.RandomCrop(224),
+        transforms.RandomGrayscale(0.4),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+
+    train_transforms_color = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.RandomRotation(10),
+        transforms.RandomResizedCrop(224, scale=(0.8, 1.2), ratio=(0.75, 1.333)),
+        transforms.ColorJitter(brightness=0.4, contrast=0.6, saturation=0.4, hue=0.3),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+
+
+    train_transforms_blur = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomCrop(224),
+        transforms.RandomVerticalFlip(),
+        transforms.GaussianBlur(kernel_size=3),
+        transforms.RandomPerspective(distortion_scale=0.7, p=0.7),
+        transforms.ToTensor(),
+        transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
+    ])
+
+
+    normal_transforms = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.RandomAffine(degrees=0, shear=20),
         transforms.ToTensor(),
         transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
     ])
@@ -216,11 +257,21 @@ def set_up_nn(train, valid, test, csv):
         transforms.Normalize(torch.Tensor(mean), torch.Tensor(sd))
     ])
 
-    train_dataset = torchvision.datasets.ImageFolder(root=train, transform=train_transforms)
+    train_dataset_blur = torchvision.datasets.ImageFolder(root=train, transform=train_transforms_blur)
+    train_dataset_color = torchvision.datasets.ImageFolder(root=train, transform=train_transforms_color)
+    train_dataset_crop = torchvision.datasets.ImageFolder(root=train, transform=train_transforms_crop)
+    normal_dataset = torchvision.datasets.ImageFolder(root=train, transform=normal_transforms)
+
+    show_transformed_images(train_dataset_crop)
+    show_transformed_images(train_dataset_color)
+    show_transformed_images(train_dataset_blur)
+    show_transformed_images(normal_dataset)
+
+    concatenated_dataset = torch.utils.data.ConcatDataset([normal_dataset, train_dataset_blur, train_dataset_color, train_dataset_crop])
     valid_dataset = torchvision.datasets.ImageFolder(root=valid, transform=valid_transforms)
     test_dataset = torchvision.datasets.ImageFolder(root=test, transform=test_transforms)
 
-    train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
+    train_loader = torch.utils.data.DataLoader(dataset=concatenated_dataset, batch_size=batch_size, shuffle=True)
     valid_loader = torch.utils.data.DataLoader(dataset=valid_dataset, batch_size=batch_size, shuffle=False)
     test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
 
@@ -235,12 +286,11 @@ def set_up_nn(train, valid, test, csv):
 
     input_size = 224 * 224 * 3
     # hidden_sizes = [32, 64, 128, 256]
-    hidden_sizes = 512
+    hidden_sizes = 64
     output_size = 10
 
     criterion = nn.CrossEntropyLoss()
-    dropout_rate = 0.2
-
+    dropout_rate = 0.8
 
     # for n in range(num_trials):
     lr = random.uniform(*lr_range)
@@ -253,9 +303,9 @@ def set_up_nn(train, valid, test, csv):
     device = set_device()
     model = model.to(device)
     # optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.8, weight_decay=weight_decay)
-    optimizer = optim.SGD(model.parameters(), lr=0.005, momentum=0.8, weight_decay=0.0005)
+    optimizer = optim.Adam(model.parameters())
     # Train the model
-    trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 30)
+    trained_model = train_nn(model, train_loader, valid_loader, test_loader, criterion, optimizer, 150)
 
     # Evaluate the model on the validation set
     accuracy = evaluate_model_on_test_set(trained_model, valid_loader)
