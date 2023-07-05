@@ -38,7 +38,7 @@ pip install numpy
 pip install Pillow
 
 
-Treniranje neuronske mreže se postiže pokretanjem main funkcije u fajlu "neural network"/neural_network.py, dok se učitavnje modela postiže pokretanjem maina u "neural network"/load_model.py. Moguće je raditi ručno testiranje fotografija njihovim prebacivanjem u folder RI_2023_Divlje_Macke i pisanjem naziva (sa ekstenzijom) kao trećeg parametra funkcije classify, kako je urađeno u primeru. 
+Treniranje neuronske mreže se postiže pokretanjem main funkcije u fajlu neural_network/neural_network.py, dok se učitavnje modela postiže pokretanjem maina u neural_network/load_model.py, preimenovanjem modela u "best_model.pth" i prebacivanjem modela u folder neural_network/best. Moguće je raditi ručno testiranje fotografija njihovim prebacivanjem u folder RI_2023_Divlje_Macke i pisanjem naziva (sa ekstenzijom) kao trećeg parametra funkcije classify, kako je urađeno u primeru. 
 
 classify(model, image_transform, 'african_leopard_8.jpg', classes, 'african_leopard'). 
 
